@@ -14,7 +14,11 @@ public class MoveController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
 		//transform.position = new Vector3(0, 0, 0);
+=======
+		// transform.position = new Vector3(0, 0, 0);
+>>>>>>> 668cea996b29314ac0e5ef26c606e327af998884
 
 		// get Access to Animator component
 		// animator = GetComponent<Animator>();
