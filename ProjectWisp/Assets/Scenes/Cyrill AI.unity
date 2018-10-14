@@ -1518,8 +1518,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1469649250}
   - component: {fileID: 1469649249}
-  - component: {fileID: 1469649248}
   - component: {fileID: 1469649247}
+  - component: {fileID: 1469649248}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -1538,6 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf692fa5225f3d4a9e614541ef16adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToToggleVisibility: {fileID: 1469649246}
 --- !u!114 &1469649248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,14 +1547,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1469649246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6efdd17f669ea4648bfccb6117e21c6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2773d51da910dae4193421d8e428c4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
   wisp: {fileID: 187780207}
-  fireballSpeed: 2
-  Strength: 10
-  ChargeSpeed: 50
+  fireballSpeed: 5
+  chargeSpeed: 5
+  strength: 10
 --- !u!212 &1469649249
 SpriteRenderer:
   m_ObjectHideFlags: 0
