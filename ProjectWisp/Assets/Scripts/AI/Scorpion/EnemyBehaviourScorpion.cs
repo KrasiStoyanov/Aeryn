@@ -5,17 +5,25 @@ using UnityEngine;
 public class EnemyBehaviourScorpion : MonoBehaviour {
 
 	//movement
-	public float movementSpeed;
-	public float triggerDistance;
-	public float shootDistance;
-	public float retreatDistance;
+	[SerializeField]
+	float movementSpeed;
+	[SerializeField]
+	float triggerDistance;
+	private bool triggered = false;
+	[SerializeField]
+	float shootDistance;
+	[SerializeField]
+	
+	float retreatDistance;
 	//shooting
-	public float weaponCoolDown;
-	private float timeBtwShots = 3;
-	public GameObject projectile;
+	[SerializeField]
+	float weaponCoolDown;
+	protected float timeBtwShots = 3;
+	[SerializeField]
+	GameObject projectile;
 	//general
 	private Transform target;
-	private Transform monsterPosition;
+	protected Transform monsterPosition;
 	private Vector2 targetProjection;
 
 	// Use this for initialization
@@ -29,15 +37,23 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 	void Update () {
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		targetProjection = new Vector2(target.position.x,monsterPosition.position.y);
-		if (timeBtwShots > 0){
-			Run();
-			timeBtwShots -= Time.deltaTime;
-		}
-		else {
-			Attack();
-			
-		}
 
+		if (Vector2.Distance(transform.position, targetProjection) <= triggerDistance)
+		{
+			triggered = true;	
+		}
+		
+		if (triggered == true){ 
+			if (timeBtwShots > 0){
+				Run();
+				timeBtwShots -= Time.deltaTime;
+			}
+			else {
+				Attack();
+					
+			}
+		}
+		
 	}
 
 	// Attack behaviour
@@ -58,9 +74,13 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 	}
 	// Shooting function
 	private void Shoot () {
-		GameObject newBullet = Instantiate(projectile,transform.position,Quaternion.LookRotation(Vector3.forward, target.position-transform.position)) as GameObject;
+		//Vector3 mousePositionVector3 = new Vector3(Input.mousePosition.x,Input.mousePosition.y,0);	
+		Vector3 mousePositionVector3 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		//GameObject newBullet = Instantiate(projectile,transform.position,Quaternion.LookRotation(Vector3.forward, target.position-transform.position)) as GameObject;
+		GameObject newBullet = Instantiate(projectile,transform.position,Quaternion.identity) as GameObject;
 		Rigidbody2D rigid = newBullet.GetComponent<Rigidbody2D>();
-		rigid.velocity= new Vector2(target.position.x, target.position.y)*2;
+		rigid.velocity= new Vector2(mousePositionVector3.x,mousePositionVector3.y)*1;
+		//rigid.velocity= transform.*20;
 		timeBtwShots = weaponCoolDown;
 
 	}

@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class wispShooting : MonoBehaviour {
 
-	public GameObject fireball;
+	// [SerializeField]
+	// [Range(0, 10)]
+	[SerializeField]
+	GameObject fireball;
 
-	public GameObject wisp;
+	[SerializeField]
+	GameObject wisp;
 
-	public float fireballSpeed;
+	[SerializeField]
+	float fireballSpeed;
+
+	[SerializeField]
 	private float Strength = 10;
-	public float ChargeSpeed = 5;
+	
+	[SerializeField]
+	float ChargeSpeed = 5;
 
 	private float NormalGravity = 1;
 	
