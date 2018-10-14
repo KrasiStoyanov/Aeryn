@@ -16,13 +16,16 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 	
 	float retreatDistance;
 	//shooting
+	protected Vector3 targetdir;
 	[SerializeField]
-	float weaponCoolDown;
+	public EnemyShooting monsterScorpionTurret;
+	[SerializeField]
+	protected float weaponCoolDown;
 	protected float timeBtwShots = 3;
 	[SerializeField]
-	GameObject projectile;
+	protected GameObject projectile;
 	//general
-	private Transform target;
+	protected Transform target;
 	protected Transform monsterPosition;
 	private Vector2 targetProjection;
 
@@ -36,6 +39,7 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+		targetdir = target.position -transform.position;
 		targetProjection = new Vector2(target.position.x,monsterPosition.position.y);
 
 		if (Vector2.Distance(transform.position, targetProjection) <= triggerDistance)
@@ -50,7 +54,7 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 			}
 			else {
 				Attack();
-					
+				
 			}
 		}
 		
@@ -63,7 +67,8 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 			transform.position = Vector2.MoveTowards(transform.position, targetProjection, movementSpeed * Time.deltaTime);
 		}
 		else if (Vector2.Distance(transform.position, target.position) <= shootDistance || Vector2.Distance(transform.position, targetProjection) <= shootDistance){
-			Shoot();
+			monsterScorpionTurret.Shoot();
+			timeBtwShots = weaponCoolDown;
 		}
 		
 
@@ -72,16 +77,15 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 	private void Run () {
 		transform.position = Vector2.MoveTowards(transform.position, targetProjection, -movementSpeed * Time.deltaTime);
 	}
-	// Shooting function
-	private void Shoot () {
-		//Vector3 mousePositionVector3 = new Vector3(Input.mousePosition.x,Input.mousePosition.y,0);	
-		Vector3 mousePositionVector3 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		//GameObject newBullet = Instantiate(projectile,transform.position,Quaternion.LookRotation(Vector3.forward, target.position-transform.position)) as GameObject;
-		GameObject newBullet = Instantiate(projectile,transform.position,Quaternion.identity) as GameObject;
-		Rigidbody2D rigid = newBullet.GetComponent<Rigidbody2D>();
-		rigid.velocity= new Vector2(mousePositionVector3.x,mousePositionVector3.y)*1;
-		//rigid.velocity= transform.*20;
-		timeBtwShots = weaponCoolDown;
+	//Shooting function old
+	// private void Shoot () {
+	// 	//Vector3 mousePositionVector3 = new Vector3(Input.mousePosition.x,Input.mousePosition.y,0);	
+	// 	Vector3 mousePositionVector3 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	// 	//GameObject newBullet = Instantiate(projectile,transform.position,Quaternion.LookRotation(Vector3.forward, target.position-transform.position)) as GameObject;
+	// 	GameObject newBullet = Instantiate(projectile,transform.position,Quaternion.identity) as GameObject;
+	// 	Rigidbody2D rigid = newBullet.GetComponent<Rigidbody2D>();
+	// 	rigid.velocity= new Vector2(mousePositionVector3.x,mousePositionVector3.y)*1;
+	// 	timeBtwShots = weaponCoolDown;
 
-	}
+	// }
 }
