@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class BossClawBehaviour : MonoBehaviour {
 
-	public float timeBtwAttacks;
+	//movement
+
+	//attack
+	[SerializeField]
+	float timeBtwAttacks;
+	//general
+	private Transform target;
+	private Vector3 clawInitialPosition;
 
 	// Use this for initialization
 	void Start () {
+		clawInitialPosition = transform.position;
+
 		
 	}
 	

@@ -32,7 +32,7 @@ public class wispShooting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	transform.position = wisp.transform.position;
+	//transform.position = wisp.transform.position;
 	Vector3 mousePositionVector3 = new Vector3(Input.mousePosition.x,Input.mousePosition.y,0);	
 	mousePositionVector3 = Camera.main.ScreenToWorldPoint(mousePositionVector3);
 
