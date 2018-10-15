@@ -1,20 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
-public class SpriteVisibility : MonoBehaviour {
+public class SpriteVisibility : MonoBehaviour
+{
+    [Tooltip("The GameObject that needs to have its visibility changed.")]
+    public GameObject objectToToggleVisibility;
 
-	SpriteRenderer rend;
+    // Use this for initialization
+    void Start()
+    {
+        Renderer spriteRenderer = objectToToggleVisibility.GetComponent<Renderer>();
 
-	// Use this for initialization
-	void Start () {
-		
-		rend = this.gameObject.GetComponent<SpriteRenderer> ();
-		rend.enabled = !rend.enabled;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        spriteRenderer.enabled = !spriteRenderer.enabled;
+    }
 }
