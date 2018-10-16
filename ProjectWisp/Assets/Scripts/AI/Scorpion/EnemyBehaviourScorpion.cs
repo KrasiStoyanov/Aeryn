@@ -41,11 +41,6 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		targetdir = target.position -transform.position;
 		targetProjection = new Vector2(target.position.x,monsterPosition.position.y);
-
-		if (Vector2.Distance(transform.position, targetProjection) <= triggerDistance)
-		{
-			triggered = true;	
-		}
 		
 		if (triggered == true){ 
 			if (timeBtwShots > 0){
@@ -56,6 +51,12 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 				Attack();
 				
 			}
+		}
+		else{
+			if (Vector2.Distance(transform.position, targetProjection) <= triggerDistance)
+		{
+			triggered = true;	
+		}
 		}
 		
 	}
