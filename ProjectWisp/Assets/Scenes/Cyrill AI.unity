@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 2
   attackCooldown: 4
-  flyToTargetSpeed: 100
+  flyToTargetSpeed: 75
 --- !u!1 &783859646
 GameObject:
   m_ObjectHideFlags: 0
