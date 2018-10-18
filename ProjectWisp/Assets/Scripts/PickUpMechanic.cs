@@ -23,7 +23,7 @@ public class PickUpMechanic : MonoBehaviour
     void Start()
     {
         pickUpObjects = GameObject.FindGameObjectsWithTag("PickUp");
-        maxDistanceBetweenSourceAndTarget = new Vector3(5f, 5f, 5f);
+        maxDistanceBetweenSourceAndTarget = new Vector3(3.0f, 3.0f, 3.0f);
     }
 
     // Update is called once per frame
@@ -63,23 +63,62 @@ public class PickUpMechanic : MonoBehaviour
                 pickedUpObjectRigidBody.gravityScale = 0;
 
                 pickedUpObject = pickUpObject;
+
+                break;
             }
         }
     }
 
     private void PickUpObject()
     {
+        // Enable the relative joint of the source
+        RelativeJoint2D sourceRelativeJoint = pickingSource.GetComponent<RelativeJoint2D>();
+        sourceRelativeJoint.connectedBody = pickedUpObject.GetComponent<Rigidbody2D>();
+
+        sourceRelativeJoint.enabled = true;
+
+        pickedUpObject.transform.parent = pickingSource.transform;
+
+        //RepositionPickedUpObject();
+    }
+
+    private void RepositionPickedUpObject()
+    {
         Vector3 positionOfSource = pickingSource.transform.position;
-        Vector3 positionOfTarget = pickedUpObject.transform.position;
 
-        positionOfTarget = Vector3.MoveTowards(positionOfTarget, positionOfSource - maxDistanceBetweenSourceAndTarget, Time.deltaTime * speedForCatchingUpToSource);
+        // Dimensions of the source object
+        Renderer dimensionsOfSource = pickingSource.GetComponent<Renderer>();
 
-        pickedUpObject.transform.position = positionOfTarget;
+        float widthOfSource = dimensionsOfSource.bounds.size.x;
+        float heightOfSource = dimensionsOfSource.bounds.size.y;
+
+        // Dimensions of the picked up object
+        Renderer dimensionsOfPickedUpObject = pickedUpObject.GetComponent<Renderer>();
+
+        float widthOfPickedUpObject = dimensionsOfPickedUpObject.bounds.size.x;
+        float heightOfPickedUpObject = dimensionsOfPickedUpObject.bounds.size.y;
+
+        // The target position for the picked up object to move to
+        Vector3 targetPosition = new Vector3();
+
+        targetPosition.x = positionOfSource.x + ((widthOfSource + widthOfPickedUpObject) / 2) + maxDistanceBetweenSourceAndTarget.x;
+        targetPosition.y = positionOfSource.y;
+        targetPosition.z = positionOfSource.z;
+
+        pickedUpObject.transform.position = Vector3.MoveTowards(pickedUpObject.transform.position, targetPosition, Time.deltaTime * 35.0f);
     }
 
     public void ReleasePickedUpObject()
     {
         pickedUpObject.GetComponent<Rigidbody2D>().gravityScale = pickedUpObjectInitialGravityScale;
+
+        // Disable the relative joint of the source
+        RelativeJoint2D sourceRelativeJoint = pickingSource.GetComponent<RelativeJoint2D>();
+
+        sourceRelativeJoint.enabled = false;
+        sourceRelativeJoint.connectedBody = null;
+
+        pickedUpObject.transform.parent = null;
 
         pickedUpObject = null;
     }
