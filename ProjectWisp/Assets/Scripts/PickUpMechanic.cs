@@ -8,9 +8,6 @@ public class PickUpMechanic : MonoBehaviour
     [Tooltip("The picking source GameObject.")]
     public GameObject pickingSource;
 
-    [Tooltip("The rotation manager.")]
-    public RotationManager rotationManager;
-
     private GameObject[] pickUpObjects;
 
     public GameObject pickedUpObject;
@@ -72,8 +69,6 @@ public class PickUpMechanic : MonoBehaviour
 
     private void PickUpObject()
     {
-        rotationManager.RotateObject(pickedUpObject);
-
         Vector3 positionOfSource = pickingSource.transform.position;
         Vector3 positionOfTarget = pickedUpObject.transform.position;
 
