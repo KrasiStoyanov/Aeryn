@@ -77,7 +77,9 @@ public class PickUpMechanic : MonoBehaviour
 
         sourceRelativeJoint.enabled = true;
 
-        RepositionPickedUpObject();
+        pickedUpObject.transform.parent = pickingSource.transform;
+
+        //RepositionPickedUpObject();
     }
 
     private void RepositionPickedUpObject()
@@ -115,6 +117,8 @@ public class PickUpMechanic : MonoBehaviour
 
         sourceRelativeJoint.enabled = false;
         sourceRelativeJoint.connectedBody = null;
+
+        pickedUpObject.transform.parent = null;
 
         pickedUpObject = null;
     }
