@@ -84,6 +84,7 @@ public class BossClawBehaviour : MonoBehaviour {
 					canReturn = true;
 					if (Vector2.Distance(transform.position, clawInitialPosition) != 0)
 					{
+						Rotate();
 						transform.position = Vector2.MoveTowards(transform.position, clawInitialPosition, flyToTargetSpeed/2 * Time.deltaTime);
 					}
 					else
@@ -122,6 +123,7 @@ public class BossClawBehaviour : MonoBehaviour {
 					canReturn = true;
 					if (Vector2.Distance(transform.position, clawInitialPosition) != 0)
 					{
+						Rotate();
 						transform.position = Vector2.MoveTowards(transform.position, clawInitialPosition, flyToTargetSpeed/2 * Time.deltaTime);
 					}
 					else
