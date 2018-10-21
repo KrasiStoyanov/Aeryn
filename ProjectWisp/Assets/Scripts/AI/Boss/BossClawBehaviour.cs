@@ -17,19 +17,23 @@ public class BossClawBehaviour : MonoBehaviour {
 	[Range(0,100)]
 	int chanceOfFirstAttack;
 	private int attackType;
-	private float timeBtwAttacks = 3;
-	private bool canAttack;
-	private bool canDropClaw;
-	private bool canReturn;
+	private float timeBtwAttacks;
+	private bool canAttack = false;
+	private bool canDropClaw = false;
+	private bool canReturn = false;
 	private Vector3 attackTarget;
 	private Vector3 attackfromHeigth;
 	private Vector3 bottomAttackPoint;
 
 	//general
 	[SerializeField]
+	bool rightClaw;
+	[SerializeField]
 	GameObject screenDividerUp;
 	[SerializeField]
 	GameObject screenDividerBottom;
+	private bool wispInRange = false;
+	private bool canRotate = false;
 	private Transform target;
 	private Transform targetPrediction;
 	private Vector3 clawInitialPosition;
@@ -40,7 +44,7 @@ public class BossClawBehaviour : MonoBehaviour {
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		targetPrediction = GameObject.FindGameObjectWithTag("Prediction").GetComponent<Transform>();
 		clawInitialPosition = transform.position;
-
+		timeBtwAttacks = attackCooldown;
 		
 	}
 	
@@ -53,8 +57,16 @@ public class BossClawBehaviour : MonoBehaviour {
 				timeBtwAttacks -= Time.deltaTime;
 			}
 			else 
-			{
-				Attack();
+			{	
+				RangeCheck();
+				if (wispInRange)
+				{
+					Attack();
+				}
+				else
+				{
+					Rotate();
+				}
 				
 			}
 
@@ -62,10 +74,70 @@ public class BossClawBehaviour : MonoBehaviour {
 	//claw rotates towards character
 	void Rotate() 
 	{
-		Vector2 direction = targetPrediction.position - transform.position;
-		float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
-		Quaternion rotation =	Quaternion.AngleAxis(angle,Vector3.forward);
-		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+		if (rightClaw)
+		{
+			if (target.position.x > clawInitialPosition.x + 20)
+			{
+				Vector2 direction = targetPrediction.position - transform.position;
+				float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+				Quaternion rotation =	Quaternion.AngleAxis(angle,Vector3.forward);
+				transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+			}
+		}
+		else
+		{
+			if (target.position.x < clawInitialPosition.x - 20)
+			{
+				Vector2 direction = targetPrediction.position - transform.position;
+				float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+				Quaternion rotation =	Quaternion.AngleAxis(angle,Vector3.forward);
+				transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+			}
+		}
+	}
+	//Chacks is character is in the range of attack;
+	void RangeCheck()
+	{
+		if (canAttack)
+		{
+			wispInRange = true;
+		}
+		else if (rightClaw)
+		{
+			if (targetPrediction.position.x > screenDividerBottom.transform.position.x && targetPrediction.position.y > screenDividerBottom.transform.position.y)
+			{
+				if (targetPrediction.position.x < screenDividerUp.transform.position.x && targetPrediction.position.y < screenDividerUp.transform.position.y)
+				{
+					wispInRange = true;
+				}
+				else if (targetPrediction.position.x >= screenDividerUp.transform.position.x || targetPrediction.position.y >= screenDividerUp.transform.position.y)
+				{
+					wispInRange = false;
+				}
+			}
+			else if (targetPrediction.position.x <= screenDividerBottom.transform.position.x || targetPrediction.position.y <= screenDividerBottom.transform.position.y)
+			{
+				wispInRange = false;
+			}
+		}
+		else if (!rightClaw)
+		{
+			if (targetPrediction.position.x < screenDividerBottom.transform.position.x && targetPrediction.position.y > screenDividerBottom.transform.position.y)
+			{
+				if (targetPrediction.position.x > screenDividerUp.transform.position.x && targetPrediction.position.y < screenDividerUp.transform.position.y)
+				{
+					wispInRange = true;
+				}
+				else if (targetPrediction.position.x <= screenDividerUp.transform.position.x || targetPrediction.position.y >= screenDividerUp.transform.position.y)
+				{
+					wispInRange = false;
+				}
+			}
+			else if (targetPrediction.position.x >= screenDividerBottom.transform.position.x || targetPrediction.position.y <= screenDividerBottom.transform.position.y)
+			{
+				wispInRange = false;
+			}
+		}
 	}
 	//claw attacks
 	void Attack()
@@ -75,16 +147,15 @@ public class BossClawBehaviour : MonoBehaviour {
 		{
 			if (canAttack)
 			{
-				if (Vector2.Distance(transform.position, attackTarget) != 0 && canReturn == false)
+				if (canReturn == false && Vector2.Distance(transform.position, attackTarget) > 1)
 				{
 					transform.position = Vector2.MoveTowards(transform.position, attackTarget, flyToTargetSpeed * Time.deltaTime);
 				}
-				else 
+				else
 				{
 					canReturn = true;
-					if (Vector2.Distance(transform.position, clawInitialPosition) != 0)
+					if (Vector2.Distance(transform.position, clawInitialPosition) > 0)
 					{
-						Rotate();
 						transform.position = Vector2.MoveTowards(transform.position, clawInitialPosition, flyToTargetSpeed/2 * Time.deltaTime);
 					}
 					else
@@ -107,23 +178,22 @@ public class BossClawBehaviour : MonoBehaviour {
 		{
 			if (canAttack)
 			{
-				if (Vector2.Distance(transform.position, attackfromHeigth) != 0 && canReturn == false && canDropClaw == false)
+				if (canDropClaw == false && Vector2.Distance(transform.position, attackfromHeigth) > 3)
 				{
 					attackfromHeigth = new Vector3(target.position.x, screenDividerUp.transform.position.y, target.position.z);
 					transform.position = Vector2.MoveTowards(transform.position, attackfromHeigth, flyToTargetSpeed/2 * Time.deltaTime);
 				}
-				else if(Vector2.Distance(transform.position, bottomAttackPoint) != 0 && canReturn == false)
+				else if(canReturn == false && Vector2.Distance(transform.position, bottomAttackPoint) > 1)
 				{
 					canDropClaw = true;
 					bottomAttackPoint = new Vector3(target.position.x, screenDividerBottom.transform.position.y, target.position.z);
 					transform.position = Vector2.MoveTowards(transform.position, bottomAttackPoint, flyToTargetSpeed * 2 * Time.deltaTime);
 				}
-				else
+				else 
 				{
 					canReturn = true;
-					if (Vector2.Distance(transform.position, clawInitialPosition) != 0)
+					if (Vector2.Distance(transform.position, clawInitialPosition) > 0)
 					{
-						Rotate();
 						transform.position = Vector2.MoveTowards(transform.position, clawInitialPosition, flyToTargetSpeed/2 * Time.deltaTime);
 					}
 					else
