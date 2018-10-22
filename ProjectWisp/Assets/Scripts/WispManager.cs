@@ -37,6 +37,8 @@ public class WispManager : MonoBehaviour
     private void Shoot()
     {
         transform.position = wisp.transform.position;
+        float widthOfSource = wisp.GetComponent<Renderer>().bounds.size.x;
+
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
@@ -49,10 +51,16 @@ public class WispManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            GameObject newBullet = Instantiate(fireball, transform.position, transform.rotation) as GameObject;
+            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2), transform.position.y, transform.position.z);
+            if (isFacingOpposite)
+            {
+                instantiatingPosition.x = instantiatingPosition.x - widthOfSource;
+            }
+
+            GameObject newBullet = Instantiate(fireball, instantiatingPosition, transform.rotation) as GameObject;
 
             Transform fireballSize = newBullet.GetComponent<Transform>();
-            fireballSize.localScale = new Vector3(0.3f * strength, 0.3f * strength, 1);
+            fireballSize.localScale = new Vector3(0.1f * strength, 0.1f * strength, 1);
 
             Rigidbody2D rigidBody = newBullet.GetComponent<Rigidbody2D>();
             rigidBody.gravityScale = normalGravity;

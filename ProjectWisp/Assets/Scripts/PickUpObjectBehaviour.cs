@@ -7,7 +7,7 @@ public class PickUpObjectBehaviour : MonoBehaviour
 {
     public PickUpMechanic pickUpManager;
 
-     private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (pickUpManager.pickedUpObject)
         {
