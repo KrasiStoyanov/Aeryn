@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpeedMotion : MonoBehaviour
 {
     //------PREDICTION----Made by Cyril----------
-    [SerializeField]
-    GameObject predictionPoint;
+    //[SerializeField]
+    //GameObject predictionPoint;
     [SerializeField]
     float predictionDistance;
     private Vector2 predictionPosition;
@@ -38,8 +38,8 @@ public class SpeedMotion : MonoBehaviour
         rb2d.AddForce(movement * speed);
         wispPosition = new Vector2(wispTransform.position.x, wispTransform.position.y);
         //predictionPoint.transform.position = wispPosition;
-        predictionPosition = movement * predictionDistance;
-        predictionPoint.transform.position =  predictionPosition + wispPosition;
+        //predictionPosition = movement * predictionDistance;
+        //predictionPoint.transform.position =  predictionPosition + wispPosition;
     }
 
     // void Update()
