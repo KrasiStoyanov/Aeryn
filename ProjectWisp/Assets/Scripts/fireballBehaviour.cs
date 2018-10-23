@@ -12,7 +12,15 @@ public class FireballBehaviour : MonoBehaviour
     {
         StartCoroutine(DestroyFireball());
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator DestroyFireball()
     {
         yield return new WaitForSeconds(lifeTime);
