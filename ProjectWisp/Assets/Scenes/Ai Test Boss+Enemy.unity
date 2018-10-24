@@ -844,7 +844,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1794304615736422, guid: c3434addaf7ced74ba81b551de8f6248, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114488447388779542, guid: c3434addaf7ced74ba81b551de8f6248,
         type: 2}
@@ -6533,7 +6533,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1774365157340324, guid: 36f1cb47919c09a45905bc29fe5a1bf4, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114483912957255630, guid: 36f1cb47919c09a45905bc29fe5a1bf4,
         type: 2}
@@ -6756,6 +6756,10 @@ Prefab:
     - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
       propertyPath: m_RootOrder
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717574727978120, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
@@ -7234,7 +7238,7 @@ MonoBehaviour:
   fireball: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
   wisp: {fileID: 1419721745}
   fireballSpeed: 5
-  chargeSpeed: 20
+  chargeSpeed: 60
   strength: 10
 --- !u!114 &1916688145
 MonoBehaviour:
@@ -7341,7 +7345,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1269980131031510, guid: fe532ef5c822e084a8fcc586ec1e729e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe532ef5c822e084a8fcc586ec1e729e, type: 2}

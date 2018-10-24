@@ -52,8 +52,8 @@ public class EnemyBehaviourScorpion : MonoBehaviour {
 	{
 		rayCasterLeft = new Vector2(dotLeft.transform.position.x, dotLeft.transform.position.y - 0.3f);
 		rayCasterRight = new Vector2(dotRight.transform.position.x, dotRight.transform.position.y - 0.3f);
-		groundInfoLeft = Physics2D.Raycast(rayCasterLeft, Vector2.down, 3f);
-		groundInfoRight = Physics2D.Raycast(rayCasterRight, Vector2.down, 3f);
+		groundInfoLeft = Physics2D.Raycast(rayCasterLeft, Vector2.down, 4f);
+		groundInfoRight = Physics2D.Raycast(rayCasterRight, Vector2.down, 4f);
 		wallInfoLeft = Physics2D.Raycast(dotLeft.transform.position, Vector2.left, 0.1f);
 		wallInfoRight = Physics2D.Raycast(dotRight.transform.position, Vector2.right, 0.1f);
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
