@@ -77,7 +77,7 @@ public class IdleMovement : MonoBehaviour {
 	void MovePrediction () {
 		wispPosition = new Vector2(wispTransform.position.x, wispTransform.position.y);
         predictionPoint.transform.position = wispPosition;
-        predictionPosition =  * predictionDistance;
+        //predictionPosition =  * predictionDistance;
         predictionPoint.transform.position =  predictionPosition + wispPosition;
 	}
 }
