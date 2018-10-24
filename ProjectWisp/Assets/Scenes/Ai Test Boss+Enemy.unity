@@ -6208,6 +6208,7 @@ GameObject:
   - component: {fileID: 1419721751}
   - component: {fileID: 1419721750}
   - component: {fileID: 1419721749}
+  - component: {fileID: 1419721755}
   - component: {fileID: 1419721748}
   - component: {fileID: 1419721747}
   - component: {fileID: 1419721746}
@@ -6252,7 +6253,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1419721745}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 949c598a091ddf4429575277f31bd763, type: 3}
   m_Name: 
@@ -6492,6 +6493,24 @@ RelativeJoint2D:
   m_AutoConfigureOffset: 1
   m_LinearOffset: {x: -48.98931, y: 77.69652}
   m_AngularOffset: 0.030514486
+--- !u!114 &1419721755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1419721745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6143feb76cc209246ba7c987ae6310f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  predictionPoint: {fileID: 209440635}
+  predictionDistance: 20
+  SPEED: 3
+  moveSPEED: 20
+  endPosition: {x: 0, y: 0, z: 0}
+  Timer: 0.5
+  waitTime: 4
 --- !u!1001 &1438164998
 Prefab:
   m_ObjectHideFlags: 0
@@ -7235,7 +7254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2773d51da910dae4193421d8e428c4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+  fireball: {fileID: 1029865980357804, guid: e642e69a7d4b43645a3ae88abd9194d7, type: 2}
   wisp: {fileID: 1419721745}
   fireballSpeed: 5
   chargeSpeed: 60
