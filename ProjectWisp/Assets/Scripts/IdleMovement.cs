@@ -48,7 +48,9 @@ public class IdleMovement : MonoBehaviour {
 			
 		} else {
 
-			rb.AddForce(new Vector3(Input.GetAxis("Horizontal") * moveSPEED, Input.GetAxis("Vertical") * moveSPEED));
+			Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+			rb.AddForce(movement * moveSPEED);
+			MovePrediction(movement);
 			startPosition = this.transform.position;
 			RandomPosition();
 			if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
@@ -74,10 +76,10 @@ public class IdleMovement : MonoBehaviour {
 	void RandomPosition () {
 		endPosition = startPosition + (new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0.0f));
 	}
-	void MovePrediction () {
+	void MovePrediction (Vector2 movementVector) {
 		wispPosition = new Vector2(wispTransform.position.x, wispTransform.position.y);
         predictionPoint.transform.position = wispPosition;
-        predictionPosition =  * predictionDistance;
+        predictionPosition = movementVector * predictionDistance;
         predictionPoint.transform.position =  predictionPosition + wispPosition;
 	}
 }
