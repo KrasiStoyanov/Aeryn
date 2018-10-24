@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212374327311630756}
   - component: {fileID: 95845461577338248}
   - component: {fileID: 50367929445959774}
-  - component: {fileID: 114675164711635492}
   - component: {fileID: 58114076903495980}
+  - component: {fileID: 114776741712722062}
   m_Layer: 0
   m_Name: FINALFIreball_0
   m_TagString: Untagged
@@ -97,7 +97,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114675164711635492
+--- !u!114 &114776741712722062
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a914928908f1f48962a75dac8193da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 200
+  lifeTime: 2
 --- !u!212 &212374327311630756
 SpriteRenderer:
   m_ObjectHideFlags: 1
