@@ -7235,7 +7235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2773d51da910dae4193421d8e428c4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+  fireball: {fileID: 1029865980357804, guid: e642e69a7d4b43645a3ae88abd9194d7, type: 2}
   wisp: {fileID: 1419721745}
   fireballSpeed: 5
   chargeSpeed: 60
