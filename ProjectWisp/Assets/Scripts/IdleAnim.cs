@@ -8,9 +8,11 @@ public class IdleAnim : MonoBehaviour {
 		
 		private ParticleSystem ps;
 		private GameObject player;
-		public float emissionOverTime = 20.0f;
-		public float emissionOverDistance = 50.0f;
-		public float StartSpeed = 5.0f;
+		private float emissionOverTime;
+		private float emissionOverDistance;
+		private float StartSpeed;
+		private float StartSize;
+		private float StartLifetime;
 
 	// Use this for initialization	 
 	void Start () {
@@ -25,6 +27,8 @@ public class IdleAnim : MonoBehaviour {
 		// Particle hacking initiated
 		var main = ps.main;
 		main.startSpeed = StartSpeed;
+		main.startSize  = StartSize;
+		main.startLifetime = StartLifetime;
 		var emission = ps.emission;
 		// var animationType = ps.textureSheetAnimation.animation;
 
@@ -36,6 +40,8 @@ public class IdleAnim : MonoBehaviour {
 			emission.rateOverTime = emissionOverTime;
 			StartSpeed = 5.0f;
 			transform.rotation = Quaternion.Euler(-60, -90, 90);
+			StartSize = 6f;
+			StartLifetime = 1f;
 		} else
 		{
 			emissionOverDistance = 50.0f;
@@ -44,6 +50,8 @@ public class IdleAnim : MonoBehaviour {
 			emission.rateOverTime = emissionOverTime;
 			StartSpeed = 0f;
 			transform.rotation = Quaternion.Euler(-180, 0, 0);
+			StartSize = 7f;
+			StartLifetime = 0.65f;
 		}
 	}
 }
