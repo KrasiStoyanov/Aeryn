@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUp
   - Prediction
+  - Enemy
   layers:
   - Default
   - TransparentFX
