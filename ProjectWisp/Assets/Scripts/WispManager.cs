@@ -24,10 +24,6 @@ public class WispManager : MonoBehaviour
 
     private bool isFacingOpposite = false;
 
-    private const int maxHealth = 100;
-    private const int minHealth = 0;
-    private int health = maxHealth;
-
     // Update is called once per frame
     void Update()
     {
@@ -55,7 +51,7 @@ public class WispManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2), transform.position.y, transform.position.z);
+            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2) + 1.0f, transform.position.y, transform.position.z);
             if (isFacingOpposite)
             {
                 instantiatingPosition.x = instantiatingPosition.x - widthOfSource;
@@ -117,17 +113,5 @@ public class WispManager : MonoBehaviour
         objectToFlip.transform.localScale = new Vector3(objectToFlip.transform.localScale.x, -objectToFlip.transform.localScale.y, objectToFlip.transform.localScale.z);
 
         isFacingOpposite = !isFacingOpposite;
-    }
-
-    /// <summary>
-    /// Change the value of the health.
-    /// </summary>
-    /// <param name="additionalHealth">Additional helath to add to the current one (could be positive or negative).</param>
-    public void ChangeHealth(int additionalHelth)
-    {
-        health += additionalHelth;
-        Mathf.Clamp(health, maxHealth, minHealth);
-
-        Debug.Log(health);
     }
 }
