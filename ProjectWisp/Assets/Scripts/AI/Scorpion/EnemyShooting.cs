@@ -10,7 +10,6 @@ public class EnemyShooting : EnemyBehaviourScorpion
     // Update is called once per frame
     void Update()
     {
-        //transform.position = monsterPosition.position;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         targetWisp = target.position - transform.position;
         transform.rotation = Quaternion.LookRotation(Vector3.forward, targetWisp);
