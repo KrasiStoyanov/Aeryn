@@ -11,15 +11,28 @@ public class FireballBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Get all enemies and exclude them from collision detection
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), enemy.GetComponent<Collider2D>());
+        }
+
         StartCoroutine(DestroyFireball());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag != "Player")
+        if (collision.collider.tag == "Player")
         {
-            Destroy(gameObject);
+            GameObject wisp = GameObject.FindGameObjectWithTag("Player");
+            Transform turret = wisp.transform.GetChild(wisp.transform.childCount - 1);
+
+            HealthMechanic healthMechanicScript = turret.GetComponent<HealthMechanic>();
+            healthMechanicScript.ChangeHealth(-10);
         }
+
+        Destroy(gameObject);
     }
 
     IEnumerator DestroyFireball()

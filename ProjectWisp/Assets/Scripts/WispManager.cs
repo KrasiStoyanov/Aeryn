@@ -51,7 +51,7 @@ public class WispManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2), transform.position.y, transform.position.z);
+            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2) + 1.0f, transform.position.y, transform.position.z);
             if (isFacingOpposite)
             {
                 instantiatingPosition.x = instantiatingPosition.x - widthOfSource;

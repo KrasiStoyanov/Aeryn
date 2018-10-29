@@ -455,6 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949c598a091ddf4429575277f31bd763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  predictionPoint: {fileID: 0}
+  predictionDistance: 0
   speed: 250
 --- !u!96 &187780214
 TrailRenderer:
@@ -560,7 +562,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickingSource: {fileID: 0}
-  rotationManager: {fileID: 0}
   pickedUpObject: {fileID: 0}
 --- !u!1 &195544294
 GameObject:
@@ -889,6 +890,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &519214551
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103101492703822, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114393880547355160, guid: c550cf1bc3a23cb419c2f169d33b009a,
+        type: 2}
+      propertyPath: wispManager
+      value: 
+      objectReference: {fileID: 878131459}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1219,10 @@ MonoBehaviour:
   rotationSpeed: 2
   attackCooldown: 4
   flyToTargetSpeed: 75
+  chanceOfFirstAttack: 0
+  rightClaw: 0
+  screenDividerUp: {fileID: 0}
+  screenDividerBottom: {fileID: 0}
 --- !u!1 &783859646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1336,7 @@ GameObject:
   - component: {fileID: 878131461}
   - component: {fileID: 878131460}
   - component: {fileID: 878131459}
+  - component: {fileID: 878131462}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -1382,6 +1435,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &878131462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878131457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6391543fe116ef4298fa4fb09527160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &985138791
 GameObject:
   m_ObjectHideFlags: 0
@@ -6668,7 +6732,7 @@ GameObject:
   - component: {fileID: 1643331278}
   - component: {fileID: 1643331277}
   m_Layer: 0
-  m_Name: Square
+  m_Name: turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6681,7 +6745,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1643331275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.03, y: 3.91, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2129893144}
@@ -6744,10 +6808,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06daf520ed87c243ac72d66fc8d666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0
-  triggerDistance: 0
-  shootDistance: 0
-  retreatDistance: 0
+  movementSpeed: 10
+  triggerDistance: 50
+  shootDistance: 50
+  safeDistance: 10
+  dotRight: {fileID: 1796835598867414, guid: fe532ef5c822e084a8fcc586ec1e729e, type: 2}
+  dotLeft: {fileID: 1287160330623902, guid: fe532ef5c822e084a8fcc586ec1e729e, type: 2}
   monsterScorpionTurret: {fileID: 0}
   weaponCoolDown: 2
   projectile: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
@@ -7079,6 +7145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949c598a091ddf4429575277f31bd763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  predictionPoint: {fileID: 1843069874}
+  predictionDistance: 0
   speed: 250
 --- !u!61 &1843069877
 BoxCollider2D:
@@ -7306,7 +7374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickingSource: {fileID: 1843069874}
-  rotationManager: {fileID: 0}
   pickedUpObject: {fileID: 0}
 --- !u!1 &1857903552
 GameObject:
@@ -7432,6 +7499,11 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!1 &1885890118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a,
+    type: 2}
+  m_PrefabInternal: {fileID: 519214551}
 --- !u!1 &2043123813
 GameObject:
   m_ObjectHideFlags: 0
@@ -7547,7 +7619,7 @@ GameObject:
   - component: {fileID: 2129893146}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7566,10 +7638,12 @@ MonoBehaviour:
   movementSpeed: 20
   triggerDistance: 40
   shootDistance: 20
-  retreatDistance: 10
+  safeDistance: 0
+  dotRight: {fileID: 1796835598867414, guid: fe532ef5c822e084a8fcc586ec1e729e, type: 2}
+  dotLeft: {fileID: 1287160330623902, guid: fe532ef5c822e084a8fcc586ec1e729e, type: 2}
   monsterScorpionTurret: {fileID: 1643331278}
   weaponCoolDown: 2
-  projectile: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
+  projectile: {fileID: 1885890118}
 --- !u!212 &2129893143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7605,7 +7679,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7800a6f1bb858474899e09bd44342732, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a21f5cb85588154d99e95bdefd211c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7623,8 +7697,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129893141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101.7, y: -93.2, z: 0}
-  m_LocalScale: {x: 4.98, y: 4.98, z: 4.98}
+  m_LocalPosition: {x: 103.1, y: -85.3, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 4.98}
   m_Children:
   - {fileID: 1643331276}
   m_Father: {fileID: 0}
@@ -7662,18 +7736,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 3.9624786}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 20.51, y: 18.96}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.938469, y: 3.2235718}
   m_EdgeRadius: 0
 --- !u!1 &2143642944
 GameObject:

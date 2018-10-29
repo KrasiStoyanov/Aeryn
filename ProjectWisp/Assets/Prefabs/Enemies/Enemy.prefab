@@ -264,8 +264,8 @@ MonoBehaviour:
   triggerDistance: 0
   shootDistance: 0
   safeDistance: 0
-  dotRight: {fileID: 0}
-  dotLeft: {fileID: 0}
+  dotRight: {fileID: 1796835598867414}
+  dotLeft: {fileID: 1287160330623902}
   monsterScorpionTurret: {fileID: 0}
   weaponCoolDown: 2
   projectile: {fileID: 1268862484855866, guid: c550cf1bc3a23cb419c2f169d33b009a, type: 2}
