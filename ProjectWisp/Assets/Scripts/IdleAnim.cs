@@ -50,7 +50,7 @@ public class IdleAnim : MonoBehaviour {
 			emission.rateOverTime = emissionOverTime;
 			StartSpeed = 0f;
 			transform.rotation = Quaternion.Euler(-180, 0, 0);
-			StartSize = 7f;
+			StartSize = 6.5f;
 			StartLifetime = 0.65f;
 		}
 	}
