@@ -8,9 +8,6 @@ public class FireballBehaviour : MonoBehaviour
     [Tooltip("The lifetime of the GameObject.")]
     public float lifeTime = 2f;
 
-    [Tooltip("Reference to the main character.")]
-    public WispManager wispManager;
-
     // Use this for initialization
     void Start()
     {
@@ -28,7 +25,11 @@ public class FireballBehaviour : MonoBehaviour
     {
         if (collision.collider.tag == "Player")
         {
-            wispManager.ChangeHealth(-10);
+            GameObject wisp = GameObject.FindGameObjectWithTag("Player");
+            Transform turret = wisp.transform.GetChild(wisp.transform.childCount - 1);
+
+            HealthMechanic healthMechanicScript = turret.GetComponent<HealthMechanic>();
+            healthMechanicScript.ChangeHealth(-10);
         }
 
         Destroy(gameObject);
