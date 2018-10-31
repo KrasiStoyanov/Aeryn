@@ -20,7 +20,8 @@ public class WispManager : MonoBehaviour
     [Tooltip("The strength of the fireball.")]
     public float strength;
 
-    private float normalGravity = 1;
+    [SerializeField]
+    float normalGravity;
 
     private bool isFacingOpposite = false;
     //Cyril____________

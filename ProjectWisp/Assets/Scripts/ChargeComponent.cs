@@ -10,6 +10,7 @@ public class ChargeComponent : MonoBehaviour {
 	private SpriteRenderer eyeColor;
 	private Color initialColor; 
 	private float percentValue;
+	private Color colorValue;
 	// Use this for initialization
 	void Start () {
 		eyeColor = GetComponent<SpriteRenderer>();
@@ -28,14 +29,17 @@ public class ChargeComponent : MonoBehaviour {
 			// GameObject.Find("Eye").GetComponent<SpriteRenderer>().color = eyeColour;
 
 			
-			Color colorValue = Color.Lerp(gradient.Evaluate(0f), gradient.Evaluate(1f), t);
+			colorValue = Color.Lerp(gradient.Evaluate(0f), gradient.Evaluate(1f), t);
 			t += Time.deltaTime/duration;
         	eyeColor.color = colorValue;
 
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
-			eyeColor.color = initialColor;
+		
+			colorValue = initialColor;
+			eyeColor.color = colorValue;
+			t = 0f;
 		}
 	}
 }
