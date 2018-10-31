@@ -15,16 +15,29 @@ public class WispManager : MonoBehaviour
     public float fireballSpeed;
     
     [Tooltip("The charge speed of the fireball.")]
-    public float chargeSpeed = 5;
+    public float chargeSpeed;
     
     [Tooltip("The strength of the fireball.")]
-    public float strength = 10;
+    public float strength;
 
-    private float normalGravity = 1;
+    [SerializeField]
+    float normalGravity;
 
     private bool isFacingOpposite = false;
+    //Cyril____________
+    [SerializeField]
+    float chargeTime;
+    private float chargeTimeVariable;
+    private float strenghtVariable;
+
+    //_______________
 
     // Update is called once per frame
+    void Start()
+    {
+        strenghtVariable = strength;
+        chargeTimeVariable = chargeTime;
+    }
     void Update()
     {
         RotateObject(wisp);
@@ -47,7 +60,16 @@ public class WispManager : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            strength += chargeSpeed * Time.deltaTime;
+            if (chargeTimeVariable > 0)
+            {
+                strenghtVariable += chargeSpeed * Time.deltaTime;
+                chargeTimeVariable -= Time.deltaTime;
+            }
+            else
+            {
+                Debug.Log("Implosion");
+            }
+           
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -60,13 +82,14 @@ public class WispManager : MonoBehaviour
             GameObject newBullet = Instantiate(fireball, instantiatingPosition, transform.rotation) as GameObject;
 
             Transform fireballSize = newBullet.GetComponent<Transform>();
-            fireballSize.localScale = new Vector3(0.1f * strength, 0.1f * strength, 1);
+            fireballSize.localScale = new Vector3(0.1f * strenghtVariable, 0.1f * strenghtVariable, 1);
 
             Rigidbody2D rigidBody = newBullet.GetComponent<Rigidbody2D>();
             rigidBody.gravityScale = normalGravity;
-            rigidBody.velocity = transform.up * strength * fireballSpeed;
+            rigidBody.velocity = transform.up * strenghtVariable * fireballSpeed;
 
-            strength = 10;
+            strenghtVariable = strength;
+            chargeTimeVariable = chargeTime;
         }
     }
 
