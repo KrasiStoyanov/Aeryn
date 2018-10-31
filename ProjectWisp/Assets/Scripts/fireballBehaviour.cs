@@ -46,9 +46,12 @@ public class FireballBehaviour : MonoBehaviour
                 // Get the health mechanic script that is attached to the target and remove the needed health.
                 HealthMechanic healthMechanicScript = turretOfShootingTarget.GetComponent<HealthMechanic>();
                 healthMechanicScript.ChangeHealth(-10);
-
-                Destroy(gameObject);
             }
+        }
+
+        if (collision.collider.tag != shootingSource.tag)
+        {
+            Destroy(gameObject);
         }
     }
 

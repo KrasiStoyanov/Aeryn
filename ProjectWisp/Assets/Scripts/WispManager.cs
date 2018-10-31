@@ -61,8 +61,9 @@ public class WispManager : MonoBehaviour
             // Set source and target/targets of shooting to the fireball.
             FireballBehaviour bulletBehaviourScript = newBullet.GetComponent<FireballBehaviour>();
             GameObject[] shootingTargets = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject shootingSource = gameObject.transform.parent.gameObject;
 
-            bulletBehaviourScript.SetShootingSource(gameObject);
+            bulletBehaviourScript.SetShootingSource(shootingSource);
             bulletBehaviourScript.SetShootingTarget(shootingTargets);
 
             // Set the bullet's size.
