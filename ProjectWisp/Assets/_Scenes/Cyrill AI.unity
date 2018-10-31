@@ -966,7 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2773d51da910dae4193421d8e428c4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball: {fileID: 1501110905701936, guid: 4dce08d36b4e7e94ebdcaba67f50ae97, type: 2}
+  fireball: {fileID: 1029865980357804, guid: e642e69a7d4b43645a3ae88abd9194d7, type: 2}
   wisp: {fileID: 1843069874}
   fireballSpeed: 5
   chargeSpeed: 20
@@ -7091,7 +7091,7 @@ Prefab:
         type: 2}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 1501110905701936, guid: 4dce08d36b4e7e94ebdcaba67f50ae97,
+      objectReference: {fileID: 1029865980357804, guid: e642e69a7d4b43645a3ae88abd9194d7,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff6641a90f0ea354980b998f719d1825, type: 2}
