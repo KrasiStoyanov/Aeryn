@@ -34,12 +34,10 @@ public class FireballBehaviour : MonoBehaviour
         {
             return;
         }
-
-        string collisionTargetTag = collision.collider.tag;
+        
         foreach (GameObject target in shootingTargets)
         {
-            string targetTag = target.tag;
-            if (collisionTargetTag == targetTag)
+            if (collision.collider.gameObject == target)
             {
                 Transform turretOfShootingTarget = target.transform.GetChild(target.transform.childCount - 1);
 

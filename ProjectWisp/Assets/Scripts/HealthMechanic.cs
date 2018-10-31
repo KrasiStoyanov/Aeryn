@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class HealthMechanic : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("The amount of maximum health.")]
     private const int maxHealth = 100;
-
     private const int minHealth = 0;
+
     public int health;
 
     private void Start()
