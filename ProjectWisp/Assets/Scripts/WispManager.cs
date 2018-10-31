@@ -7,23 +7,23 @@ public class WispManager : MonoBehaviour
 {
     [Tooltip("The firebal GameObject.")]
     public GameObject fireball;
-    
+
     [Tooltip("The wisp GameObject.")]
     public GameObject wisp;
-    
+
     [Tooltip("The speed of the fireball.")]
     public float fireballSpeed;
-    
+
     [Tooltip("The charge speed of the fireball.")]
     public float chargeSpeed = 5;
-    
+
     [Tooltip("The strength of the fireball.")]
     public float strength = 10;
 
     private float normalGravity = 1;
 
     private bool isFacingOpposite = false;
-    
+
     void Update()
     {
         RotateObject(wisp);

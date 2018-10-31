@@ -170,7 +170,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 274622e5a897aee4288336e07283cec7, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5981,7 +5981,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 274622e5a897aee4288336e07283cec7, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6506,10 +6506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   predictionPoint: {fileID: 209440635}
   predictionDistance: 20
-  SPEED: 3
-  moveSPEED: 20
-  endPosition: {x: 0, y: 0, z: 0}
-  Timer: 0.5
+  idleSpeed: 1
+  moveSpeed: 10
   waitTime: 4
 --- !u!1001 &1438164998
 Prefab:
