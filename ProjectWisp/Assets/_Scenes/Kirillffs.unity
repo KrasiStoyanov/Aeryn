@@ -10575,10 +10575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   predictionPoint: {fileID: 1822372233}
   predictionDistance: 20
-  SPEED: 3
-  moveSPEED: 30
-  endPosition: {x: 0, y: 0, z: 0}
-  Timer: 0.5
+  idleSpeed: 1
+  moveSpeed: 200
   waitTime: 4
 --- !u!1 &318847843
 GameObject:
@@ -12023,9 +12021,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33974b7a478315048b67ed9df1ea58ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emissionOverTime: 20
-  emissionOverDistance: 50
-  StartSpeed: 5
 --- !u!199 &526998114
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -17631,9 +17626,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireball: {fileID: 1029865980357804, guid: e642e69a7d4b43645a3ae88abd9194d7, type: 2}
   wisp: {fileID: 315597252}
-  fireballSpeed: 1
-  chargeSpeed: 5
+  fireballSpeed: 5
+  chargeSpeed: 10
   strength: 10
+  chargeTime: 3
 --- !u!114 &746604302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20484,9 +20480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33974b7a478315048b67ed9df1ea58ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emissionOverTime: 20
-  emissionOverDistance: 50
-  StartSpeed: 5
 --- !u!199 &1394845373
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -25216,9 +25209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33974b7a478315048b67ed9df1ea58ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emissionOverTime: 20
-  emissionOverDistance: 50
-  StartSpeed: 5
 --- !u!199 &1418089368
 ParticleSystemRenderer:
   serializedVersion: 6

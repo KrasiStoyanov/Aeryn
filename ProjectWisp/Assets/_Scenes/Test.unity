@@ -16988,7 +16988,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 637665913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 0.65, z: 2.2222223}
+  m_LocalPosition: {x: 1.04, y: 0.65, z: -1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 315597259}
@@ -17028,7 +17028,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 46
+  m_SortingOrder: 47
   m_Sprite: {fileID: 21300000, guid: 13997d3c227767048b5002bb28bbabc7, type: 3}
   m_Color: {r: 0.67058825, g: 0.05490196, b: 0.003921569, a: 1}
   m_FlipX: 1
@@ -17054,7 +17054,7 @@ MonoBehaviour:
   gradient:
     serializedVersion: 2
     key0: {r: 0.6698113, g: 0.0544404, b: 0.0031594948, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0, g: 0.7265241, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 1}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -17080,7 +17080,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 3
-  duration: 3
+  duration: 50
 --- !u!1 &669236232
 GameObject:
   m_ObjectHideFlags: 0
