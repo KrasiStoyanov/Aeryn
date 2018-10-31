@@ -23,8 +23,7 @@ public class WispManager : MonoBehaviour
     private float normalGravity = 1;
 
     private bool isFacingOpposite = false;
-
-    // Update is called once per frame
+    
     void Update()
     {
         RotateObject(wisp);
@@ -51,7 +50,7 @@ public class WispManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2) + 1.0f, transform.position.y, transform.position.z);
+            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2), transform.position.y, transform.position.z);
             if (isFacingOpposite)
             {
                 instantiatingPosition.x = instantiatingPosition.x - widthOfSource;
@@ -59,9 +58,18 @@ public class WispManager : MonoBehaviour
 
             GameObject newBullet = Instantiate(fireball, instantiatingPosition, transform.rotation) as GameObject;
 
+            // Set source and target/targets of shooting to the fireball.
+            FireballBehaviour bulletBehaviourScript = newBullet.GetComponent<FireballBehaviour>();
+            GameObject[] shootingTargets = GameObject.FindGameObjectsWithTag("Enemy");
+
+            bulletBehaviourScript.SetShootingSource(gameObject);
+            bulletBehaviourScript.SetShootingTarget(shootingTargets);
+
+            // Set the bullet's size.
             Transform fireballSize = newBullet.GetComponent<Transform>();
             fireballSize.localScale = new Vector3(0.1f * strength, 0.1f * strength, 1);
 
+            // Give the bullet speed.
             Rigidbody2D rigidBody = newBullet.GetComponent<Rigidbody2D>();
             rigidBody.gravityScale = normalGravity;
             rigidBody.velocity = transform.up * strength * fireballSpeed;
