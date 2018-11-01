@@ -4,14 +4,16 @@ using UnityEngine.EventSystems;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class OnclickEffect : MonoBehaviour {
+public class MenuManager : MonoBehaviour {
 
     public GameObject menu; // Assign in inspector
+	private GameObject turret;
     private bool isShowing;
+	
 	
 	// Use this for initialization
 	void Start () {
-
+		turret = GameObject.Find("turret");
 	}
 	
 	// Update is called once per frame
@@ -20,19 +22,13 @@ public class OnclickEffect : MonoBehaviour {
             isShowing = !isShowing;
             menu.SetActive(isShowing);
         }
-	}
 
-	// public void OnPointerClick(PointerEventData eventData)
-    // {
-    //     if (ButtonName = "Resumebutton")
-	// 	{
-	// 		Canvas.SetActive(false);
-	// 	} else if (ButtonName = "OptionsButton")
-	// 	{
-			
-	// 	} else if (ButtonName = "QuitButton")
-	// 	{
-	// 		EditorSceneManager.OpenScene("Assets/Scenes/StartScene");
-	// 	}
-    // }
+		if (menu.activeSelf) {
+			Time.timeScale = 0f;
+			turret.SetActive(false);
+		} else {
+			Time.timeScale = 1f;
+			turret.SetActive(true);
+		}
+	}
 }
