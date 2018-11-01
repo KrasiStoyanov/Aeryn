@@ -54,6 +54,7 @@ public class BossBehaviourManager : MonoBehaviour {
 			}
 			else
 			{
+				
 				isTriggered = true;
 				readyForBattle = true;
 
