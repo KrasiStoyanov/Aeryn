@@ -7,37 +7,23 @@ public class WispManager : MonoBehaviour
 {
     [Tooltip("The firebal GameObject.")]
     public GameObject fireball;
-    
+
     [Tooltip("The wisp GameObject.")]
     public GameObject wisp;
-    
+
     [Tooltip("The speed of the fireball.")]
     public float fireballSpeed;
-    
-    [Tooltip("The charge speed of the fireball.")]
-    public float chargeSpeed;
-    
-    [Tooltip("The strength of the fireball.")]
-    public float strength;
 
-    [SerializeField]
-    float normalGravity;
+    [Tooltip("The charge speed of the fireball.")]
+    public float chargeSpeed = 5;
+
+    [Tooltip("The strength of the fireball.")]
+    public float strength = 10;
+
+    private float normalGravity = 1;
 
     private bool isFacingOpposite = false;
-    //Cyril____________
-    [SerializeField]
-    float chargeTime;
-    private float chargeTimeVariable;
-    private float strenghtVariable;
 
-    //_______________
-
-    // Update is called once per frame
-    void Start()
-    {
-        strenghtVariable = strength;
-        chargeTimeVariable = chargeTime;
-    }
     void Update()
     {
         RotateObject(wisp);
@@ -60,20 +46,11 @@ public class WispManager : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (chargeTimeVariable > 0)
-            {
-                strenghtVariable += chargeSpeed * Time.deltaTime;
-                chargeTimeVariable -= Time.deltaTime;
-            }
-            else
-            {
-                Debug.Log("Implosion");
-            }
-           
+            strength += chargeSpeed * Time.deltaTime;
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2) + 1.0f, transform.position.y, transform.position.z);
+            Vector3 instantiatingPosition = new Vector3(transform.position.x + (widthOfSource / 2), transform.position.y, transform.position.z);
             if (isFacingOpposite)
             {
                 instantiatingPosition.x = instantiatingPosition.x - widthOfSource;
@@ -81,15 +58,24 @@ public class WispManager : MonoBehaviour
 
             GameObject newBullet = Instantiate(fireball, instantiatingPosition, transform.rotation) as GameObject;
 
-            Transform fireballSize = newBullet.GetComponent<Transform>();
-            fireballSize.localScale = new Vector3(0.1f * strenghtVariable, 0.1f * strenghtVariable, 1);
+            // Set source and target/targets of shooting to the fireball.
+            FireballBehaviour bulletBehaviourScript = newBullet.GetComponent<FireballBehaviour>();
+            GameObject[] shootingTargets = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject shootingSource = gameObject.transform.parent.gameObject;
 
+            bulletBehaviourScript.SetShootingSource(shootingSource);
+            bulletBehaviourScript.SetShootingTarget(shootingTargets);
+
+            // Set the bullet's size.
+            Transform fireballSize = newBullet.GetComponent<Transform>();
+            fireballSize.localScale = new Vector3(0.1f * strength, 0.1f * strength, 1);
+
+            // Give the bullet speed.
             Rigidbody2D rigidBody = newBullet.GetComponent<Rigidbody2D>();
             rigidBody.gravityScale = normalGravity;
-            rigidBody.velocity = transform.up * strenghtVariable * fireballSpeed;
+            rigidBody.velocity = transform.up * strength * fireballSpeed;
 
-            strenghtVariable = strength;
-            chargeTimeVariable = chargeTime;
+            strength = 10;
         }
     }
 

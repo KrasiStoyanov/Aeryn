@@ -10,7 +10,7 @@ public class HealthMechanic : MonoBehaviour
     private const int maxHealth = 100;
 
     private const int minHealth = 0;
-    private int health;
+    public int health;
 
     private void Start()
     {
@@ -24,9 +24,9 @@ public class HealthMechanic : MonoBehaviour
     public void ChangeHealth(int additionalHelth)
     {
         health += additionalHelth;
-        Mathf.Clamp(health, maxHealth, minHealth);
 
-        Debug.Log(health);
+        // Limit the value of the health to be between the min and maximum.
+        Mathf.Clamp(health, maxHealth, minHealth);
     }
 
     /// <summary>
