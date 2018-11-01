@@ -18,7 +18,7 @@ public class WispManager : MonoBehaviour
     public float chargeSpeed = 5;
 
     [Tooltip("The strength of the fireball.")]
-<<<<<<< HEAD
+
     public float strength;
     private float strengthVariable;
     [SerializeField]
@@ -26,13 +26,8 @@ public class WispManager : MonoBehaviour
     [SerializeField]
     float chargeTime;
     private float chargeTimeVariable;
-=======
-    public float strength = 10;
 
     private HealthMechanic healthManager;
-
-    private float normalGravity = 1;
->>>>>>> ea586a2114dec683a751244b52cabf984dfe8b6b
 
     private bool isFacingOpposite = false;
     void Start()
@@ -41,8 +36,6 @@ public class WispManager : MonoBehaviour
         strengthVariable = strength;
         
     }
-
-    private const int healthRate = 20;
 
     private const int healthRate = 20;
 
@@ -109,6 +102,7 @@ public class WispManager : MonoBehaviour
             rigidBody.velocity = transform.up * strengthVariable * fireballSpeed;
 
             strengthVariable = strength;
+            chargeTimeVariable = chargeTime;
         }
     }
 
