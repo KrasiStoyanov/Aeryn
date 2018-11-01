@@ -18,16 +18,38 @@ public class WispManager : MonoBehaviour
     public float chargeSpeed = 5;
 
     [Tooltip("The strength of the fireball.")]
+<<<<<<< HEAD
+    public float strength;
+    private float strengthVariable;
+    [SerializeField]
+    float normalGravity;
+    [SerializeField]
+    float chargeTime;
+    private float chargeTimeVariable;
+=======
     public float strength = 10;
 
+    private HealthMechanic healthManager;
+
     private float normalGravity = 1;
+>>>>>>> ea586a2114dec683a751244b52cabf984dfe8b6b
 
     private bool isFacingOpposite = false;
+    void Start()
+    {
+        chargeTimeVariable = chargeTime;
+        strengthVariable = strength;
+        
+    }
+
+    private const int healthRate = 20;
 
     void Update()
     {
         RotateObject(wisp);
         Shoot();
+
+        healthManager = transform.parent.GetComponent<HealthMechanic>();
     }
 
     /// <summary>
@@ -46,7 +68,16 @@ public class WispManager : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            strength += chargeSpeed * Time.deltaTime;
+            if (chargeTimeVariable > 0)
+            {
+                strengthVariable += chargeSpeed * Time.deltaTime;  
+                chargeTimeVariable -= Time.deltaTime;
+            }
+            else 
+            {
+                Debug.Log("Implosion");
+            }
+        
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -68,14 +99,14 @@ public class WispManager : MonoBehaviour
 
             // Set the bullet's size.
             Transform fireballSize = newBullet.GetComponent<Transform>();
-            fireballSize.localScale = new Vector3(0.1f * strength, 0.1f * strength, 1);
+            fireballSize.localScale = new Vector3(0.1f * strengthVariable, 0.1f * strengthVariable, 1);
 
             // Give the bullet speed.
             Rigidbody2D rigidBody = newBullet.GetComponent<Rigidbody2D>();
             rigidBody.gravityScale = normalGravity;
-            rigidBody.velocity = transform.up * strength * fireballSpeed;
+            rigidBody.velocity = transform.up * strengthVariable * fireballSpeed;
 
-            strength = 10;
+            strengthVariable = strength;
         }
     }
 
@@ -122,5 +153,28 @@ public class WispManager : MonoBehaviour
         objectToFlip.transform.localScale = new Vector3(objectToFlip.transform.localScale.x, -objectToFlip.transform.localScale.y, objectToFlip.transform.localScale.z);
 
         isFacingOpposite = !isFacingOpposite;
+    }
+
+    /// <summary>
+    /// Change the health of the wisp.
+    /// </summary>
+    /// <param name="bulletSize">The size of the bullet that hit the wisp.</param>
+    public void ChangeHealth(Vector3 bulletSize)
+    {
+        // Get the back light of the wisp and its intensity.
+        Light backLight = transform.parent.GetChild(0).GetComponent<Light>();
+        float intensityOfBackLight = backLight.intensity;
+
+        // Change the intensity of the light based on the bullet size.
+        intensityOfBackLight -= bulletSize.x;
+
+        // Get the current health value of the wisp and change it based on the intensity of the light.
+        float health = healthManager.GetHealth();
+        health = intensityOfBackLight * healthRate;
+        health = Mathf.Floor(health);
+
+        // Update the back light intensity and the health value of the wisp.
+        backLight.intensity = intensityOfBackLight;
+        healthManager.ChangeHealth(health);
     }
 }
