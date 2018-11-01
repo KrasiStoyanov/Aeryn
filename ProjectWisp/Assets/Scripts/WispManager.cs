@@ -20,14 +20,20 @@ public class WispManager : MonoBehaviour
     [Tooltip("The strength of the fireball.")]
     public float strength = 10;
 
+    private HealthMechanic healthManager;
+
     private float normalGravity = 1;
 
     private bool isFacingOpposite = false;
+
+    private const int healthRate = 20;
 
     void Update()
     {
         RotateObject(wisp);
         Shoot();
+
+        healthManager = transform.parent.GetComponent<HealthMechanic>();
     }
 
     /// <summary>
@@ -122,5 +128,28 @@ public class WispManager : MonoBehaviour
         objectToFlip.transform.localScale = new Vector3(objectToFlip.transform.localScale.x, -objectToFlip.transform.localScale.y, objectToFlip.transform.localScale.z);
 
         isFacingOpposite = !isFacingOpposite;
+    }
+
+    /// <summary>
+    /// Change the health of the wisp.
+    /// </summary>
+    /// <param name="bulletSize">The size of the bullet that hit the wisp.</param>
+    public void ChangeHealth(Vector3 bulletSize)
+    {
+        // Get the back light of the wisp and its intensity.
+        Light backLight = transform.parent.GetChild(0).GetComponent<Light>();
+        float intensityOfBackLight = backLight.intensity;
+
+        // Change the intensity of the light based on the bullet size.
+        intensityOfBackLight -= bulletSize.x;
+
+        // Get the current health value of the wisp and change it based on the intensity of the light.
+        float health = healthManager.GetHealth();
+        health = intensityOfBackLight * healthRate;
+        health = Mathf.Floor(health);
+
+        // Update the back light intensity and the health value of the wisp.
+        backLight.intensity = intensityOfBackLight;
+        healthManager.ChangeHealth(health);
     }
 }
