@@ -44,6 +44,8 @@ public class WispManager : MonoBehaviour
 
     private const int healthRate = 20;
 
+    private const int healthRate = 20;
+
     void Update()
     {
         RotateObject(wisp);
