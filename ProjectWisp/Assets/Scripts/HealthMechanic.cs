@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class HealthMechanic : MonoBehaviour
 {
-    private const float maxHealth = 100;
-    private const float minHealth = 0;
+    public float maxHealth = 100;
+    public float minHealth = 0;
 
     public float health;
 
