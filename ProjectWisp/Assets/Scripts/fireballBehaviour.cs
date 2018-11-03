@@ -41,29 +41,10 @@ public class FireballBehaviour : MonoBehaviour
         {
             if (collision.collider.gameObject == target)
             {
-                // Check what the target tag is and based on that get their manager scripts to call their different change health functions.
-                switch (target.tag)
-                {
-                    case "Player":
-                        WispManager wispManager = target.transform.GetChild(target.transform.childCount - 1).GetComponent<WispManager>();
-                        wispManager.ChangeHealth(bulletSize);
+                HealthMechanic targetHealthMechanic = target.GetComponent<HealthMechanic>();
 
-                        break;
-                    case "Enemy":
-                        EnemyBehaviourScorpion enemyScorpionManager = target.GetComponent<EnemyBehaviourScorpion>();
-                        enemyScorpionManager.ChangeHealth(bulletSize);
-
-                        break;
-                }
+                targetHealthMechanic.ChangeHealth(bulletSize);
             }
-        }
-
-        // If an enemy shoots and hits another enemy - do damage.
-        if (collision.collider.tag == "Enemy" && collision.collider.tag == shootingSource.tag)
-        {
-            EnemyBehaviourScorpion enemyScorpionManager = collision.gameObject.GetComponent<EnemyBehaviourScorpion>();
-
-            enemyScorpionManager.ChangeHealth(bulletSize);
         }
 
         if (collision.collider.tag != shootingSource.tag)
