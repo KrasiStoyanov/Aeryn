@@ -49,7 +49,7 @@ public class WispManager : MonoBehaviour
 
         healthManager = transform.parent.GetComponent<HealthMechanic>();
 
-        ChangeIntensitiyOfBackLight();
+        UpdateIntensityOfBackLight();
     }
 
     /// <summary>
@@ -159,7 +159,7 @@ public class WispManager : MonoBehaviour
     /// <summary>
     /// Change the intensitiy of the back light based on the health.
     /// </summary>
-    public void ChangeIntensitiyOfBackLight()
+    public void UpdateIntensityOfBackLight()
     {
         // Get the back light of the wisp and its intensity.
         Light backLight = transform.parent.GetChild(0).GetComponent<Light>();
