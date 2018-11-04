@@ -251,7 +251,8 @@ MonoBehaviour:
   attackCooldown: 3
   flyToTargetSpeed: 50
   chanceOfFirstAttack: 50
-  bossBehaviourController: {fileID: 0}
+  bossBehaviourController: {fileID: 1331555385852818, guid: 9ccbe187c392b3746a8dd613a7a8ed09,
+    type: 2}
   rightClaw: 1
   screenDividerUp: {fileID: 1427430853921318}
   screenDividerBottom: {fileID: 1620182177279128}
