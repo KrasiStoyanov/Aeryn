@@ -7,6 +7,7 @@ TagManager:
   - PickUp
   - Prediction
   - Enemy
+  - Fireball
   layers:
   - Default
   - TransparentFX

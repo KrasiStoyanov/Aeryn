@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 212374327311630756}
   - component: {fileID: 95845461577338248}
   - component: {fileID: 50367929445959774}
-  - component: {fileID: 58114076903495980}
   - component: {fileID: 114776741712722062}
+  - component: {fileID: 70621465451577480}
   m_Layer: 0
   m_Name: FINALFIreball_0
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029865980357804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 138.36, y: -41.9, z: 0}
+  m_LocalPosition: {x: -109.842995, y: -18.196592, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,8 +64,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58114076903495980
-CircleCollider2D:
+--- !u!70 &70621465451577480
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,9 +76,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
+  m_Offset: {x: -0.01994133, y: 1.4601154}
+  m_Size: {x: 1.4762077, y: 3.0797691}
+  m_Direction: 0
 --- !u!95 &95845461577338248
 Animator:
   serializedVersion: 3
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a914928908f1f48962a75dac8193da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
+  lifeTime: 20
 --- !u!212 &212374327311630756
 SpriteRenderer:
   m_ObjectHideFlags: 1
