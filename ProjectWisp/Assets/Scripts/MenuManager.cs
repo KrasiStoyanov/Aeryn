@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour {
 
     public GameObject menu; // Assign in inspector
 	private GameObject turret;
-    private bool isShowing;
+    public bool isShowing;
 	
 	
 	// Use this for initialization

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Undefined
   - HealingSource
+  - Prediction
+  - Fireball
+  - Enemy
+  - GameManager
   layers:
   - Default
   - TransparentFX
