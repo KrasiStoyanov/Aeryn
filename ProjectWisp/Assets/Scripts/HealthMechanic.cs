@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class HealthMechanic : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("The amount of maximum health.")]
-    private const int maxHealth = 100;
+    public float maxHealth = 100;
+    public float minHealth = 0;
 
-    private const int minHealth = 0;
-    private int health;
+    public float health;
 
     private void Start()
     {
@@ -18,21 +16,21 @@ public class HealthMechanic : MonoBehaviour
     }
 
     /// <summary>
-    /// Change the value of the health.
+    /// Change the value of the health and keep it between the maximum and minimum value.
     /// </summary>
-    /// <param name="additionalHealth">Additional helath to add to the current one (could be positive or negative).</param>
-    public void ChangeHealth(int additionalHelth)
+    /// <param name="bulletSize">The size of the bullet.</param>
+    public void ChangeHealth(Vector3 bulletSize)
     {
-        health += additionalHelth;
-        Mathf.Clamp(health, maxHealth, minHealth);
+        float newHealth = health - (bulletSize.x * 10);
 
-        Debug.Log(health);
+        // Limit the value of the health to be between the min and maximum.
+        health = Mathf.Clamp(newHealth, minHealth, maxHealth);
     }
 
     /// <summary>
     /// Get the current health value.
     /// </summary>
-    public int GetHealth()
+    public float GetHealth()
     {
         return health;
     }
