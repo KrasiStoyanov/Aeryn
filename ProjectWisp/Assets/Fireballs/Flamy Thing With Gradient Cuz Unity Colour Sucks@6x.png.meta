@@ -1,0 +1,446 @@
+fileFormatVersion: 2
+guid: 2ee473adac5ffc4499f9dec5769a28d5
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_0
+    21300002: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_1
+    21300004: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_2
+    21300006: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_3
+    21300008: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_8
+    21300010: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_9
+    21300012: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_10
+    21300014: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_11
+    21300016: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_15
+    21300018: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_17
+    21300020: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_18
+    21300022: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_22
+    21300024: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_24
+    21300026: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_25
+    21300028: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_26
+    21300030: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_28
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10211
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef36d73ca7cea946ae7ca96605f4570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_1
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 10624
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4319bc8c7edf7754897c1a0e7236a0e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_2
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 10182
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad37f66257d386c46b0cc7a6bc0e5648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_3
+      rect:
+        serializedVersion: 2
+        x: 4166
+        y: 10196
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2379d32a88d80004f994a697d366e592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7681
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b616ec9f471c7458471e90639affb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_9
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 7724
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0206b065d2eb87b408f04f471321e4f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_10
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 7496
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e6ad7bbc55c4e4b8f27c7a30f80386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_11
+      rect:
+        serializedVersion: 2
+        x: 4194
+        y: 7496
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9721f85b20a738a4ab7b8bf979fea593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5237
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948c2da06a3aa8d4495a13620e1cccfa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_17
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 5180
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfefdd535d50ec141ab42fdd7fbea327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_18
+      rect:
+        serializedVersion: 2
+        x: 4208
+        y: 5152
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e8cffb2fcdc7e4597a6447b2c234b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2323
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51facd6bf6af461429c3e3fd7e60bf1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_24
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 2380
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe5d969a132dec49975561906c3e077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_25
+      rect:
+        serializedVersion: 2
+        x: 4208
+        y: 2423
+        width: 1020
+        height: 1682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d026dea731e024c4e823593d86daa2c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a4e943fd3e96141acbfc55aec163b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flamy Thing With Gradient Cuz Unity Colour Sucks@6x_28
+      rect:
+        serializedVersion: 2
+        x: 1897
+        y: 0
+        width: 1020
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d2abec81b6f664fbd916ca79d67236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a9f831debb52cc245954736d796ff6de
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
