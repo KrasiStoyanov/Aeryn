@@ -43,7 +43,7 @@ public class FireballBehaviour : MonoBehaviour
             {
                 HealthMechanic targetHealthMechanic = target.GetComponent<HealthMechanic>();
 
-                targetHealthMechanic.ChangeHealth(bulletSize);
+                targetHealthMechanic.LoseHealth(bulletSize);
             }
         }
 
