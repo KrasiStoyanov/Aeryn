@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MouseEffect : MonoBehaviour {
@@ -21,19 +22,19 @@ public class MouseEffect : MonoBehaviour {
 		
 	}
 	
-	void OnMouseOver() {
+	public void OnMouseOver() {
 		decoLeft.transform.position += Vector3.left * 15.0f;
 		decoRight.transform.position += Vector3.right * 15.0f;
 		decoCenter.transform.position += Vector3.down * 10.0f;
  	}
 	
-	void OnMouseExit() {
+	public void OnMouseExit() {
 		decoLeft.transform.position -= Vector3.left * 15.0f;
 		decoRight.transform.position -= Vector3.right * 15.0f;
 		decoCenter.transform.position -= Vector3.down * 10.0f;
 	}
 
-	void OnMouseDown() {
+	public void OnMouseDown() {
 		menu.SetActive(false);
 		Time.timeScale = 1f;
 	}
