@@ -80,12 +80,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cddbb9d57d79f54abd5d3e9a7b4594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clawRight: {fileID: 0}
-  clawLeft: {fileID: 0}
-  sting: {fileID: 0}
-  face: {fileID: 0}
-  canvas: {fileID: 0}
-  bossHealth: {fileID: 0}
+  clawRight: {fileID: 1350474216564186, guid: 67fca707403586e489f4ff6b1c22f530, type: 2}
+  clawLeft: {fileID: 1804870059459754, guid: 98a44bfc317b3d64ba1d64f71a847f99, type: 2}
+  sting: {fileID: 1954034433928470, guid: a64400dc96191314fbfa5767e199114b, type: 2}
+  face: {fileID: 1294802242122402, guid: 81e4e00072adf074b9226e34d415f1c7, type: 2}
+  canvas: {fileID: 1603796605582168, guid: af81edafad9fcfd408441efc43ae21ae, type: 2}
+  bossHealth: {fileID: 114535213571210142, guid: af81edafad9fcfd408441efc43ae21ae,
+    type: 2}
   isTriggered: 0
   finalTailWhip: 0
   countdownPoint: {fileID: 1111420959095316}
