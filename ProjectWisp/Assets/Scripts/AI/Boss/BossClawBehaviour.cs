@@ -24,7 +24,16 @@ public class BossClawBehaviour : MonoBehaviour {
 	private Vector3 attackTarget;
 	private Vector3 attackfromHeigth;
 	private Vector3 bottomAttackPoint;
+	// Final move
+	private bool finalStingMovePhase = false;
+	private bool finalStingMoveChangableVariable = false;
+	private bool triggeredToAttack;
 
+	[SerializeField]
+	GameObject bossBehaviourController;
+
+	//Animation
+	private float distanceToTarget;
 	//general
 	[SerializeField]
 	bool rightClaw;
@@ -37,10 +46,14 @@ public class BossClawBehaviour : MonoBehaviour {
 	private Transform target;
 	private Transform targetPrediction;
 	private Vector3 clawInitialPosition;
+	private float healthAmount;
 
 	// Use this for initialization
 	void Start () 
 	{
+		triggeredToAttack =  bossBehaviourController.GetComponent<BossBehaviourManager>().isTriggered;
+		finalStingMoveChangableVariable = bossBehaviourController.GetComponent<BossBehaviourManager>().finalTailWhip;
+		healthAmount = gameObject.GetComponent<HealthMechanic>().health;
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		targetPrediction = GameObject.FindGameObjectWithTag("Prediction").GetComponent<Transform>();
 		clawInitialPosition = transform.position;
@@ -51,46 +64,68 @@ public class BossClawBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (timeBtwAttacks > 0)
+		triggeredToAttack =  bossBehaviourController.GetComponent<BossBehaviourManager>().isTriggered;
+		finalStingMoveChangableVariable = bossBehaviourController.GetComponent<BossBehaviourManager>().finalTailWhip;
+		if(triggeredToAttack)
+		{
+			if (healthAmount > 0)
 			{
-				Rotate();
-				timeBtwAttacks -= Time.deltaTime;
-			}
-			else 
-			{	
-				RangeCheck();
-				if (wispInRange)
+				if (!finalStingMovePhase)
 				{
-					Attack();
+					if (timeBtwAttacks > 0)
+					{
+						Rotate(targetPrediction.position);
+						timeBtwAttacks -= Time.deltaTime;
+					}
+					else 
+					{	
+						RangeCheck();
+						if (wispInRange)
+						{
+							Attack();
+						}
+						else
+						{
+							Rotate(targetPrediction.position);
+						}
+						
+					}
 				}
 				else
 				{
-					Rotate();
+					//play Claw clicking animation multiple times.
 				}
-				
 			}
+			else
+			{
+				Debug.Log("I guess I will die");
+				//Claw should be disabled or crippled somehow
+			}
+		}
+		
+		
 
 	}
 	//claw rotates towards character
-	void Rotate() 
+	void Rotate(Vector3 rotationTarget) 
 	{
 		if (rightClaw)
 		{
-			if (target.position.x > clawInitialPosition.x + 20)
+			if (target.position.x > transform.position.x + 20)
 			{
-				Vector2 direction = targetPrediction.position - transform.position;
+				Vector2 direction = rotationTarget - transform.position;
 				float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
-				Quaternion rotation =	Quaternion.AngleAxis(angle,Vector3.forward);
+				Quaternion rotation =	Quaternion.AngleAxis(angle + 20f,Vector3.forward);
 				transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 			}
 		}
 		else
 		{
-			if (target.position.x < clawInitialPosition.x - 20)
+			if (target.position.x < transform.position.x - 20)
 			{
-				Vector2 direction = targetPrediction.position - transform.position;
+				Vector2 direction = rotationTarget - transform.position;
 				float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
-				Quaternion rotation =	Quaternion.AngleAxis(angle,Vector3.forward);
+				Quaternion rotation =	Quaternion.AngleAxis(angle - 20f,Vector3.forward);
 				transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 			}
 		}
@@ -150,6 +185,14 @@ public class BossClawBehaviour : MonoBehaviour {
 				if (canReturn == false && Vector2.Distance(transform.position, attackTarget) > 1)
 				{
 					transform.position = Vector2.MoveTowards(transform.position, attackTarget, flyToTargetSpeed * Time.deltaTime);
+					if (Vector2.Distance(transform.position, attackTarget) > distanceToTarget/2)
+					{
+						//play claw opening animation---------------------------------ANIMATION--------------------------------------------------
+					}
+					else
+					{
+						//play claw closure animation---------------------------------ANIMATION--------------------------------------------------
+					}
 				}
 				else
 				{
@@ -157,6 +200,8 @@ public class BossClawBehaviour : MonoBehaviour {
 					if (Vector2.Distance(transform.position, clawInitialPosition) > 0)
 					{
 						transform.position = Vector2.MoveTowards(transform.position, clawInitialPosition, flyToTargetSpeed/2 * Time.deltaTime);
+						Rotate(target.position);
+						//plays Claw idle animation---------------------------------ANIMATION--------------------------------------------------
 					}
 					else
 					{
@@ -165,12 +210,17 @@ public class BossClawBehaviour : MonoBehaviour {
 						attackType = Random.Range(0, 100);
 						canAttack = false;
 						canReturn = false;
+						if (finalStingMoveChangableVariable)
+						{
+							finalStingMovePhase = true;
+						}
 					}
 				}
 			}
 			else
 			{
 				attackTarget = targetPrediction.position;
+				distanceToTarget = Vector2.Distance(transform.position, attackTarget);
 				canAttack = true;
 			}
 		}
@@ -182,12 +232,14 @@ public class BossClawBehaviour : MonoBehaviour {
 				{
 					attackfromHeigth = new Vector3(target.position.x, screenDividerUp.transform.position.y, target.position.z);
 					transform.position = Vector2.MoveTowards(transform.position, attackfromHeigth, flyToTargetSpeed/2 * Time.deltaTime);
+					Rotate(screenDividerUp.transform.position);
 				}
 				else if(canReturn == false && Vector2.Distance(transform.position, bottomAttackPoint) > 1)
 				{
 					canDropClaw = true;
 					bottomAttackPoint = new Vector3(target.position.x, screenDividerBottom.transform.position.y, target.position.z);
 					transform.position = Vector2.MoveTowards(transform.position, bottomAttackPoint, flyToTargetSpeed * 2 * Time.deltaTime);
+					//play claw closure animation---------------------------------ANIMATION--------------------------------------------------
 				}
 				else 
 				{
@@ -195,6 +247,8 @@ public class BossClawBehaviour : MonoBehaviour {
 					if (Vector2.Distance(transform.position, clawInitialPosition) > 0)
 					{
 						transform.position = Vector2.MoveTowards(transform.position, clawInitialPosition, flyToTargetSpeed/2 * Time.deltaTime);
+						Rotate(target.position);
+						//plays Claw idle animation---------------------------------ANIMATION--------------------------------------------------
 					}
 					else
 					{
@@ -204,6 +258,10 @@ public class BossClawBehaviour : MonoBehaviour {
 						canAttack = false;
 						canDropClaw = false;
 						canReturn = false;
+						if (finalStingMoveChangableVariable)
+						{
+							finalStingMovePhase = true;
+						}
 					}
 				}
 			}

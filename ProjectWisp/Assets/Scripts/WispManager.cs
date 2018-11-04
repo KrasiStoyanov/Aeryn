@@ -29,12 +29,15 @@ public class WispManager : MonoBehaviour
 
     private HealthMechanic healthManager;
 
+    private float previousIntensity;
+
     private bool isFacingOpposite = false;
     void Start()
     {
         chargeTimeVariable = chargeTime;
         strengthVariable = strength;
-        
+
+        previousIntensity = transform.parent.GetChild(0).GetComponent<Light>().intensity;
     }
 
     private const int healthRate = 20;
@@ -45,6 +48,8 @@ public class WispManager : MonoBehaviour
         Shoot();
 
         healthManager = transform.parent.GetComponent<HealthMechanic>();
+
+        ChangeIntensitiyOfBackLight();
     }
 
     /// <summary>
@@ -152,25 +157,22 @@ public class WispManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Change the health of the wisp.
+    /// Change the intensitiy of the back light based on the health.
     /// </summary>
-    /// <param name="bulletSize">The size of the bullet that hit the wisp.</param>
-    public void ChangeHealth(Vector3 bulletSize)
+    public void ChangeIntensitiyOfBackLight()
     {
         // Get the back light of the wisp and its intensity.
         Light backLight = transform.parent.GetChild(0).GetComponent<Light>();
         float intensityOfBackLight = backLight.intensity;
 
-        // Change the intensity of the light based on the bullet size.
-        intensityOfBackLight -= bulletSize.x;
-
         // Get the current health value of the wisp and change it based on the intensity of the light.
         float health = healthManager.GetHealth();
-        health = intensityOfBackLight * healthRate;
         health = Mathf.Floor(health);
+
+        // Change the intensity of the light based on the bullet size.
+        intensityOfBackLight = health / 20.0f;
 
         // Update the back light intensity and the health value of the wisp.
         backLight.intensity = intensityOfBackLight;
-        healthManager.ChangeHealth(health);
     }
 }

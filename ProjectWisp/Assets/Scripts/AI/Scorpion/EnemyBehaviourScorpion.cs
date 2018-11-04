@@ -100,7 +100,6 @@ public class EnemyBehaviourScorpion : MonoBehaviour
                 triggered = true;
             }
         }
-
     }
 
     // Attack behaviour
@@ -139,20 +138,5 @@ public class EnemyBehaviourScorpion : MonoBehaviour
                 }
             }
         }
-    }
-
-    /// <summary>
-    /// Change the health of the scorpion.
-    /// </summary>
-    /// <param name="bulletSize">The size of the bullet that hit the scorpion.</param>
-    public void ChangeHealth(Vector3 bulletSize)
-    {
-        // Get the current health value of the wisp and change it based on the bullet size.
-        float health = healthManager.GetHealth();
-        health = health - (bulletSize.x * 10);
-        health = Mathf.Floor(health);
-
-        // Update the health value of the scorpion.
-        healthManager.ChangeHealth(health);
     }
 }

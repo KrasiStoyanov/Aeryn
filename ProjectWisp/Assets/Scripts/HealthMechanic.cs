@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class HealthMechanic : MonoBehaviour
 {
-    private const float maxHealth = 100;
-    private const float minHealth = 0;
+    public float maxHealth = 100;
+    public float minHealth = 0;
 
     public float health;
 
@@ -18,9 +18,11 @@ public class HealthMechanic : MonoBehaviour
     /// <summary>
     /// Change the value of the health and keep it between the maximum and minimum value.
     /// </summary>
-    /// <param name="newHealth">The new health value.</param>
-    public void ChangeHealth(float newHealth)
+    /// <param name="bulletSize">The size of the bullet.</param>
+    public void ChangeHealth(Vector3 bulletSize)
     {
+        float newHealth = health - (bulletSize.x * 10);
+
         // Limit the value of the health to be between the min and maximum.
         health = Mathf.Clamp(newHealth, minHealth, maxHealth);
     }

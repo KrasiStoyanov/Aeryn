@@ -19,14 +19,20 @@ public class BossBehaviourManager : MonoBehaviour {
 	private float healthFace;
 	//Slider
 	[SerializeField]
-	GameObject Slider;
+	GameObject canvas;
+	[SerializeField]
+	Slider bossHealth;
 	//general
-	private bool isTriggered = false;
+	private Canvas canvasVisibility;
+	public bool isTriggered = false;
 	private bool readyForBattle = false;
 	private bool secondStage = false;
-	private bool finalTailWhip = false;
+	public bool finalTailWhip = false;
 	private float generalHealth;
 	private float initialGeneralHealth;
+	private RectTransform sliderSize;
+	private Vector2 sliderSizeVariable;
+	private float sliderValue;
 	private Transform target;
 
 	[SerializeField]
@@ -34,13 +40,21 @@ public class BossBehaviourManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Slider.GetComponent<RectTransform>().sizeDelta = new Vector2(0,40f);
+		
+		canvasVisibility = canvas.GetComponent<Canvas>();
+		canvasVisibility.enabled = false;
+		sliderSizeVariable = new Vector2(0,40f);
+		sliderSize = canvas.transform.Find("Slider").GetComponent<RectTransform>();
+		sliderSize.sizeDelta = new Vector2(0,40f);
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		healthFace = face.GetComponent<HealthMechanic>().health;
 		healthRightClaw = clawRight.GetComponent<HealthMechanic>().health;
 		healthLeftClaw = clawLeft.GetComponent<HealthMechanic>().health;
 		healthSting = sting.GetComponent<HealthMechanic>().health;
 		initialGeneralHealth = healthFace + healthLeftClaw + healthRightClaw + healthSting;
+		sliderValue = generalHealth * 100f/ initialGeneralHealth;
+		//canvas.transform.Find("Slider").GetComponent<Slider>().value = sliderValue;
+
 		Debug.Log(initialGeneralHealth);
 	}
 	
@@ -54,23 +68,45 @@ public class BossBehaviourManager : MonoBehaviour {
 			}
 			else
 			{
-				
-				isTriggered = true;
-				readyForBattle = true;
+				canvasVisibility.enabled = true;
+				if (sliderSizeVariable.x < 500)
+				{
+					sliderSizeVariable.x += 10;
+					sliderSize.sizeDelta = sliderSizeVariable;
+				}
+				else
+				{
+					isTriggered = true;
+					readyForBattle = true;
+				}
+				// while (sliderSizeVariable.x < 500)
+				// {
+				// 	sliderSizeVariable.x += Time.deltaTime;
+				// 	sliderSize.sizeDelta = sliderSizeVariable;
+				// }
 
 			}
 		}
 	}
 	void ManageHealth () 
 	{
+		Debug.Log(generalHealth);
+		healthFace = face.GetComponent<HealthMechanic>().health;
+		healthRightClaw = clawRight.GetComponent<HealthMechanic>().health;
+		healthLeftClaw = clawLeft.GetComponent<HealthMechanic>().health;
+		healthSting = sting.GetComponent<HealthMechanic>().health;
 		generalHealth = healthFace + healthLeftClaw + healthRightClaw + healthSting;
+		sliderValue = generalHealth * 100f/ initialGeneralHealth;
+		canvas.transform.Find("Slider").GetComponent<Slider>().value = sliderValue;
 		if (generalHealth * 100f / initialGeneralHealth < 50f && secondStage == false)
 		{
+			Debug.Log("FUCK OFF");
 			secondStage = true;
 
 		}
-		if (generalHealth * 100f / initialGeneralHealth < 2f && finalTailWhip == false);
+		if (generalHealth * 100f / initialGeneralHealth < 2f && finalTailWhip == false)
 		{
+			Debug.Log("Now it should fuck up the wisp");
 			finalTailWhip = true;
 		}
 	}
