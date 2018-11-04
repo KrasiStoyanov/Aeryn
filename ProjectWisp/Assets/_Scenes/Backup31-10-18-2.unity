@@ -11058,7 +11058,7 @@ MonoBehaviour:
   predictionPoint: {fileID: 1822372233}
   predictionDistance: 20
   idleSpeed: 1
-  moveSpeed: 10
+  moveSpeed: 50
   waitTime: 4
 --- !u!1 &317771784
 GameObject:
