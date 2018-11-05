@@ -4,14 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PickUp
   - Prediction
   - Enemy
-<<<<<<< HEAD
-  - Fireball
-=======
-  - HealingSource
->>>>>>> 158e99bd8f10a180e027e6406abfd8e580e9bb16
+  - PillarPiece
+  - CrackedPillar
   layers:
   - Default
   - TransparentFX
