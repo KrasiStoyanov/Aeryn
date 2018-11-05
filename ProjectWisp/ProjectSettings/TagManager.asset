@@ -3,11 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags:
   - Prediction
   - Enemy
   - PillarPiece
   - CrackedPillar
+=======
+  tags: []
+>>>>>>> ca81f9d8874553ff8879e589bdcb937e6351f507
   layers:
   - Default
   - TransparentFX

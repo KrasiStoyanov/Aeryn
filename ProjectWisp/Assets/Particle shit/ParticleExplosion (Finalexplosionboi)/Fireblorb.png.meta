@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e3c506eee1a1fa74f9b37ae9d167525a
+=======
+guid: ec7e08605884b6847a731a19fe2d81a7
+>>>>>>> ca81f9d8874553ff8879e589bdcb937e6351f507
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 5
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -21,8 +25,6 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
-  streamingMipmaps: 0
-  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -92,8 +94,6 @@ TextureImporter:
     edges: []
     weights: []
   spritePackingTag: Poop
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
