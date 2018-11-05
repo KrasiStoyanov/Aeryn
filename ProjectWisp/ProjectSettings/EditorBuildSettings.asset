@@ -9,12 +9,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/StartMenu.unity
     guid: 45befa08dd1df884290a00f70446f23c
   - enabled: 1
-    path: Assets/_Scenes/Backup04-11-18.unity
-    guid: 007377abf20eb0045826300cef6881d7
+    path: Assets/_Scenes/StayOff.unity
+    guid: 11a69bf22d451ec4a9c57c07b19a404c
   - enabled: 1
     path: Assets/_Scenes/Cyrill AI.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/_Scenes/StayOff.unity
-    guid: 11a69bf22d451ec4a9c57c07b19a404c
   m_configObjects: {}
