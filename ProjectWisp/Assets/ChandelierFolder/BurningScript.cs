@@ -89,7 +89,10 @@ public class BurningScript : MonoBehaviour {
 				GetComponent<BoxCollider2D>().enabled = false;
 
                 Destroy(burningObject);
-			}
+
+                ObjectThatShouldFall objectThatShouldFallScript = transform.root.GetChild(0).GetComponent<ObjectThatShouldFall>();
+                objectThatShouldFallScript.ObjectIsFalling();
+            }
 		}
 	}
 }
