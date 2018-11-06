@@ -22,7 +22,7 @@ public class HealingMechanic : MonoBehaviour
 
     // The range between which the object to heal can actually get health.
     private float minDistance = 0.5f;
-    private float maxDistance = 3.0f;
+    private float maxDistance = 8.0f;
 
     void Start()
     {
@@ -50,8 +50,8 @@ public class HealingMechanic : MonoBehaviour
                 if (intensityofLightOfHealingSource > 0)
                 {
                     // Get the position of the healing source and get the distance between it and the object to heal.
-                    Vector3 healingSourcePosition = new Vector3(healingSource.transform.position.x, healingSource.transform.position.y, objectToHeal.transform.position.z);
-                    float distanceBetweenHealingSourceAndObjectToHeal = Vector3.Distance(objectToHeal.transform.position, healingSourcePosition);
+                    Vector2 healingSourcePosition = new Vector2(healingSource.transform.position.x, healingSource.transform.position.y);
+                    float distanceBetweenHealingSourceAndObjectToHeal = Vector2.Distance(objectToHeal.transform.position, healingSourcePosition);
 
                     Debug.Log(distanceBetweenHealingSourceAndObjectToHeal);
                     if (distanceBetweenHealingSourceAndObjectToHeal > minDistance &&
