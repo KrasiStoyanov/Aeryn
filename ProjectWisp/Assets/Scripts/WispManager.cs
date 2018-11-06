@@ -32,10 +32,33 @@ public class WispManager : MonoBehaviour
     private float previousIntensity;
 
     private bool isFacingOpposite = false;
+
+    // SOUND LOADING
+    private float currentMaxHealth;
+
+    [SerializeField]
+    AudioClip wispCharge1;
+
+    [SerializeField]
+    AudioClip wispCharge2;
+
+    [SerializeField]
+    AudioClip wispChargeRelease;
+
+    [SerializeField]
+    AudioClip wispHit;
+
+    [SerializeField]
+    AudioClip wispDying;
+
+    [SerializeField]
+    AudioClip wispIdle;
+
     void Start()
     {
         chargeTimeVariable = chargeTime;
         strengthVariable = strength;
+        currentMaxHealth = healthManager.GetHealth();
 
         previousIntensity = transform.parent.GetChild(0).GetComponent<Light>().intensity;
     }
@@ -65,13 +88,18 @@ public class WispManager : MonoBehaviour
 
         Vector3 target = mousePosition - transform.position;
         transform.rotation = Quaternion.LookRotation(Vector3.forward, target);
-
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
+        {
+            AudioSource.PlayClipAtPoint(wispCharge1, transform.position);
+        }
+        else if (Input.GetMouseButton(0))
         {
             if (chargeTimeVariable > 0)
             {
                 strengthVariable += chargeSpeed * Time.deltaTime;  
                 chargeTimeVariable -= Time.deltaTime;
+
+                AudioSource.PlayClipAtPoint(wispChargeRelease, transform.position);
             }
             else 
             {
@@ -108,6 +136,8 @@ public class WispManager : MonoBehaviour
 
             strengthVariable = strength;
             chargeTimeVariable = chargeTime;
+
+            AudioSource.PlayClipAtPoint(wispCharge2, transform.position);
         }
     }
 
@@ -167,6 +197,7 @@ public class WispManager : MonoBehaviour
 
         // Get the current health value of the wisp and change it based on the intensity of the light.
         float health = healthManager.GetHealth();
+        PlaySound();
         health = Mathf.Floor(health);
 
         // Change the intensity of the light based on the bullet size.
@@ -175,4 +206,25 @@ public class WispManager : MonoBehaviour
         // Update the back light intensity and the health value of the wisp.
         backLight.intensity = intensityOfBackLight;
     }
+    public void PlaySound(){
+        if(healthManager.GetHealth() > 0)
+        {
+             if(healthManager.GetHealth() < currentMaxHealth)
+            {
+                AudioSource.PlayClipAtPoint(wispHit, transform.position);            
+
+                currentMaxHealth = healthManager.GetHealth();
+            }
+            else if (healthManager.GetHealth() > currentMaxHealth)
+            {
+                currentMaxHealth = healthManager.GetHealth();
+            }
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(wispDying, transform.position);
+        }
+       
+    }
+    
 }
