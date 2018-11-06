@@ -4788,6 +4788,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &13187887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5379,6 +5380,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &57152024
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6957,6 +6959,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &134561316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7127,6 +7130,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &136637789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12362,6 +12366,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &178813654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13218,6 +13223,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &205616384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13987,6 +13993,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &260964999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14226,6 +14233,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &280589399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15195,6 +15203,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &339063715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15653,6 +15662,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &370096152
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15823,6 +15833,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &378849988
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17625,6 +17636,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &520338913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22536,6 +22548,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &536778488
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23578,6 +23591,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &608275449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24274,6 +24288,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &676497196
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25563,6 +25578,12 @@ MonoBehaviour:
   strength: 10
   normalGravity: 5
   chargeTime: 3
+  wispCharge1: {fileID: 0}
+  wispCharge2: {fileID: 0}
+  wispChargeRelease: {fileID: 0}
+  wispHit: {fileID: 0}
+  wispDying: {fileID: 0}
+  wispIdle: {fileID: 0}
 --- !u!114 &746604302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25915,6 +25936,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &767396164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26229,6 +26251,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &776819784
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26399,6 +26422,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &777768282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28011,6 +28035,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &887759346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30361,6 +30386,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1097664005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31630,6 +31656,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1225951926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32276,6 +32303,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1254028062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38596,6 +38624,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1410777882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38766,6 +38795,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1414460625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46823,6 +46853,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1490554784
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47101,6 +47132,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1505091912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47421,6 +47453,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1512684131
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47591,6 +47624,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1513600024
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48054,6 +48088,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1541735486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49971,6 +50006,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1663520138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50164,7 +50200,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 345eba6407d2244f9a5267d94617c2ec, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -50717,6 +50753,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1692714884
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51173,6 +51210,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1739760679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51297,7 +51335,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 177b6077f88a148f29bc4f313ef7441a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -51568,6 +51606,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1774308735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51738,6 +51777,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1775969278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52518,6 +52558,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1817066240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52688,6 +52729,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1821759705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53042,6 +53084,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1836450640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53837,6 +53880,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1883356231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54650,6 +54694,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &1967705998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55003,6 +55048,7 @@ MonoBehaviour:
   RopeBelowBool: {fileID: 0}
   IsBurning: 0
   fire: {fileID: 0}
+  burnSound: {fileID: 0}
 --- !u!61 &2001335624
 BoxCollider2D:
   m_ObjectHideFlags: 0

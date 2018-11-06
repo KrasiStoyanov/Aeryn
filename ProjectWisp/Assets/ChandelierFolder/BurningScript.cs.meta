@@ -3,7 +3,11 @@ guid: a19667b1bc607974797e2e16ec79916f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - RopeAboveBool: {instanceID: 0}
+  - RopeBelowBool: {instanceID: 0}
+  - fire: {instanceID: 0}
+  - burnSound: {fileID: 8300000, guid: 989d5749741c02c4d8485c7f46c91c59, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

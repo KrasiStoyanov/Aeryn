@@ -14,6 +14,12 @@ public class BurningScript : MonoBehaviour {
     public GameObject fire;
     private GameObject burningObject;
 
+	//sound
+	private bool playSound;
+
+	[SerializeField]
+	AudioClip burnSound;
+
 	void Start () {
 		if (transform.parent.tag != "EditorOnly"){
 			RopeAbove = transform.parent.gameObject;
@@ -43,6 +49,12 @@ public class BurningScript : MonoBehaviour {
 
 	void Update () {
 		if(IsBurning == true){
+			if(!playSound){
+				AudioSource.PlayClipAtPoint(burnSound, transform.position);
+				playSound = true;
+			}
+						
+
 			Counter += 1;
             if (burningObject == null && Counter < 300)
             {
@@ -59,7 +71,7 @@ public class BurningScript : MonoBehaviour {
 
 				//Add any executable code that you want to activate once, before waiting here!//
 
-				
+				playSound = false;
 
 				////////////////////////////////////////////////////////////////////////////////
 
