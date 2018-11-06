@@ -4,12 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Undefined
   - HealingSource
   - Prediction
-  - Fireball
   - Enemy
-  - GameManager
+  - Fireball
+  - RopePiece
   layers:
   - Default
   - TransparentFX

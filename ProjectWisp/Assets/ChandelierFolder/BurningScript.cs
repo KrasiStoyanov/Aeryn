@@ -11,6 +11,8 @@ public class BurningScript : MonoBehaviour {
 	private int Counter = 0;
 	public bool IsBurning = false;
 	private bool HasDone = false;
+    public GameObject fire;
+    private GameObject burningObject;
 
 	void Start () {
 		if (transform.parent.tag != "EditorOnly"){
@@ -42,6 +44,17 @@ public class BurningScript : MonoBehaviour {
 	void Update () {
 		if(IsBurning == true){
 			Counter += 1;
+            if (burningObject == null && Counter < 300)
+            {
+                float heightOfRopePiece = gameObject.GetComponent<Renderer>().bounds.size.y;
+                float bottomOfRopePiece = transform.position.y + (heightOfRopePiece / 2);
+
+                burningObject = Instantiate(fire, new Vector3(transform.position.x, bottomOfRopePiece, transform.position.z), Quaternion.identity);
+                burningObject.transform.parent = transform;
+                burningObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+                burningObject.transform.localScale = new Vector3(5.0f, 5.0f, 1.0f);
+            }
+
 			if (HasDone == false){
 
 				//Add any executable code that you want to activate once, before waiting here!//
@@ -73,7 +86,9 @@ public class BurningScript : MonoBehaviour {
 			if (Counter == 300){
 				GetComponent<HingeJoint2D>().enabled = false;
 				GetComponent<SpriteRenderer>().enabled = false;
-				GetComponent<BoxCollider2D>().enabled = false;	
+				GetComponent<BoxCollider2D>().enabled = false;
+
+                Destroy(burningObject);
 			}
 		}
 	}

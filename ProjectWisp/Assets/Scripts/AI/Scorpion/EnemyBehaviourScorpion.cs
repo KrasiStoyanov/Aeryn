@@ -55,6 +55,17 @@ public class EnemyBehaviourScorpion : MonoBehaviour
     private Vector2 targetProjection;
 
     private HealthMechanic healthManager;
+    private List<GameObject> lightSources;
+
+    // The intensity rate for light sources.
+    [SerializeField]
+    private float intensityRate = 0.1f;
+
+    // The range between which the object to heal can actually get health.
+    [SerializeField]
+    private float minDistance = 15.0f;
+    [SerializeField]
+    private float maxDistance = 25.0f;
 
     // Use this for initialization
     void Start()
@@ -62,6 +73,15 @@ public class EnemyBehaviourScorpion : MonoBehaviour
         monsterPosition = GetComponent<Transform>();
 
         healthManager = GetComponent<HealthMechanic>();
+
+        lightSources = new List<GameObject>();
+        foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+            if (go.name == "Light Source")
+            {
+                lightSources.Add(go);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -100,6 +120,8 @@ public class EnemyBehaviourScorpion : MonoBehaviour
                 triggered = true;
             }
         }
+
+        InfluenceLight();
     }
 
     // Attack behaviour
@@ -137,6 +159,26 @@ public class EnemyBehaviourScorpion : MonoBehaviour
                     waitCommand = true;
                 }
             }
+        }
+    }
+
+    private void InfluenceLight()
+    {
+        for (int index = 0; index < lightSources.Count; index++)
+        {
+            GameObject lightSource = lightSources[index];
+            Light lightComponent = lightSource.GetComponent<Light>();
+
+            Vector3 lightSourcePosition = new Vector3(lightSource.transform.position.x, lightSource.transform.position.y, transform.position.z);
+            float distanceBetweenLightSourceAndTheEnemy = Vector3.Distance(transform.position, lightSourcePosition);
+            
+            if (distanceBetweenLightSourceAndTheEnemy > minDistance &&
+                distanceBetweenLightSourceAndTheEnemy < maxDistance)
+            {
+                lightComponent.intensity = distanceBetweenLightSourceAndTheEnemy / intensityRate;
+            }
+
+            lightComponent.intensity = Mathf.Clamp(lightComponent.intensity, 0, 5);
         }
     }
 }
