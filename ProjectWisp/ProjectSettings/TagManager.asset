@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Fireball
   - RopePiece
+  - GameManager
   layers:
   - Default
   - TransparentFX
