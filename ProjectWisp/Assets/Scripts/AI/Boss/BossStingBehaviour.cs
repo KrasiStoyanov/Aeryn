@@ -30,6 +30,12 @@ public class BossStingBehaviour : MonoBehaviour {
 	private bool triggeredToAttack;
 	[SerializeField]
 	GameObject bossBehaviourController;
+		
+	//Sounds
+	private bool playSound;
+
+	[SerializeField]
+	AudioClip stingAttack;
 
 
 	//general
@@ -165,11 +171,16 @@ public class BossStingBehaviour : MonoBehaviour {
 			else if (step1 == false && Vector2.Distance(transform.position, bottomAttackPoint) > 1)
 			{
 				canDropSting = true;
+				if(!playSound){
+						AudioSource.PlayClipAtPoint(stingAttack, transform.position);
+						playSound = true;
+				}
 				transform.position = Vector2.MoveTowards(transform.position, bottomAttackPoint, flyToTargetSpeed * 2f * Time.deltaTime);
 			}
 			else if (step2 == false && Vector2.Distance(transform.position, stingInitialPosition) > midAttackPoint)
 			{
 				step1 = true;
+				playSound = false;
 				Rotate(bottomAttackPoint2);
 				transform.position = Vector2.MoveTowards(transform.position, stingInitialPosition , flyToTargetSpeed * Time.deltaTime);
 			}
@@ -181,6 +192,11 @@ public class BossStingBehaviour : MonoBehaviour {
 			else
 			{
 				canReturn = true;
+
+				if(!playSound){
+						AudioSource.PlayClipAtPoint(stingAttack, transform.position);
+						playSound = true;
+					}
 				if (Vector2.Distance(transform.position,stingInitialPosition) > 1)
 				{
 					transform.position = Vector2.MoveTowards(transform.position, stingInitialPosition, flyToTargetSpeed * Time.deltaTime);
@@ -194,6 +210,7 @@ public class BossStingBehaviour : MonoBehaviour {
 					step1 = false;
 					step2 = false;
 					canReturn = false;
+					playSound = false;
 					if (finalStingMoveChangableVariable)
 					{
 						finalStingMovePhase = true;

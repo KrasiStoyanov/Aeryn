@@ -34,6 +34,17 @@ public class BossClawBehaviour : MonoBehaviour {
 
 	//Animation
 	private float distanceToTarget;
+
+	//Sounds
+	private bool playSound;
+
+	[SerializeField]
+	AudioClip clawAttack;
+
+	[SerializeField]
+	AudioClip clawAttackCue;
+
+
 	//general
 	[SerializeField]
 	bool rightClaw;
@@ -76,6 +87,15 @@ public class BossClawBehaviour : MonoBehaviour {
 					{
 						Rotate(targetPrediction.position);
 						timeBtwAttacks -= Time.deltaTime;
+						// if(timeBtwAttacks < 1){
+						// if(!playSound){
+						// 	AudioSource.PlayClipAtPoint(clawAttackCue, transform.position);
+						// 	playSound = true;
+						// }
+			
+						// }
+						
+						
 					}
 					else 
 					{	
@@ -188,6 +208,11 @@ public class BossClawBehaviour : MonoBehaviour {
 					if (Vector2.Distance(transform.position, attackTarget) > distanceToTarget/2)
 					{
 						//play claw opening animation---------------------------------ANIMATION--------------------------------------------------
+						if(!playSound){
+							AudioSource.PlayClipAtPoint(clawAttack, transform.position);
+							playSound = true;
+						}
+						
 					}
 					else
 					{
@@ -210,6 +235,7 @@ public class BossClawBehaviour : MonoBehaviour {
 						attackType = Random.Range(0, 100);
 						canAttack = false;
 						canReturn = false;
+						playSound = false;
 						if (finalStingMoveChangableVariable)
 						{
 							finalStingMovePhase = true;
@@ -258,6 +284,7 @@ public class BossClawBehaviour : MonoBehaviour {
 						canAttack = false;
 						canDropClaw = false;
 						canReturn = false;
+						playSound = false;
 						if (finalStingMoveChangableVariable)
 						{
 							finalStingMovePhase = true;

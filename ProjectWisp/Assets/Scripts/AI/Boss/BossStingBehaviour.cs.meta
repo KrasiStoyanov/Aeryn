@@ -3,7 +3,11 @@ guid: f816e54a9391f224ba15ad75281e55c6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bossBehaviourController: {instanceID: 0}
+  - stingAttack: {fileID: 8300000, guid: e41ed07286543004d8e645d384174fe7, type: 3}
+  - screenDividerUp: {instanceID: 0}
+  - screenDividerBottom: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -3,7 +3,17 @@ guid: 3cddbb9d57d79f54abd5d3e9a7b4594f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - clawRight: {instanceID: 0}
+  - clawLeft: {instanceID: 0}
+  - sting: {instanceID: 0}
+  - face: {instanceID: 0}
+  - canvas: {instanceID: 0}
+  - bossHealth: {instanceID: 0}
+  - bossHit: {fileID: 8300000, guid: fd6d10fcca6c4304488c3d2e93f8ea5a, type: 3}
+  - startBoss: {fileID: 8300000, guid: dd1efcac408a4004fb8283b51118b2ba, type: 3}
+  - startBossMusic: {fileID: 8300000, guid: 177b6077f88a148f29bc4f313ef7441a, type: 3}
+  - countdownPoint: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
