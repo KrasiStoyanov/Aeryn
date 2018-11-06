@@ -43,11 +43,70 @@ public class FireballBehaviour : MonoBehaviour
             {
                 HealthMechanic targetHealthMechanic = target.GetComponent<HealthMechanic>();
 
-                targetHealthMechanic.ChangeHealth(bulletSize);
+                targetHealthMechanic.LoseHealth(bulletSize);
             }
         }
 
-        if (collision.collider.tag != shootingSource.tag)
+        if (collision.collider.tag == "HealingSource")
+        {
+            if (shootingSource.tag == "Player")
+            {
+                // Disable all movement and visuals of the fireball in order to smoothly increase the intensity of the hit candle.
+
+                // Hide the fireball.
+                gameObject.GetComponent<Renderer>().enabled = false;
+
+                // Stop the falling of the fireball - keep it in its last position.
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+                for (int index = 0; index < transform.childCount; index++)
+                {
+                    // Disable all child elements of the fireball.
+                    transform.GetChild(index).gameObject.SetActive(false);
+                }
+                
+                Light lightSource = collision.collider.gameObject.transform.GetComponent<Light>();
+
+                // Smoothly increase the light of the candle.
+                StartCoroutine(LightCandle(lightSource, 5.0f, 6.0f));
+            }
+        }
+
+        if (collision.collider.tag == "RopePiece")
+        {
+            BurningScript burningScript = collision.collider.gameObject.GetComponent<BurningScript>();
+
+            burningScript.IsBurning = true;
+        }
+
+        // Whenever the fireball collides with any other game object from the above - destroy.
+        // Exclude elements with tag HealingSource from this check in order to smoothly increase candle ligth and then destroy.
+        if (collision.collider.tag != shootingSource.tag && collision.collider.tag != "HealingSource")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    /// <summary>
+    /// Smoothly increase the intensity of the light of the given candle.
+    /// </summary>
+    /// <param name="lightSource">The light source that needs to have its intensity increased.</param>
+    /// <param name="targetIntensity">The maximum intensity that the light should reach.</param>
+    /// <param name="speed">The speed at which the intensity is increasing.</param>
+    private IEnumerator LightCandle(Light lightSource, float targetIntensity, float speed)
+    {
+        // Smoothly increase the intensity of the candle's light until it reaches the target value.
+        while (lightSource.intensity < targetIntensity)
+        {
+            lightSource.intensity += speed * Time.deltaTime;
+
+            // Keep the value of the intensity between min and max.
+            lightSource.intensity = Mathf.Clamp(lightSource.intensity, 0, targetIntensity);
+
+            yield return null;
+        }
+
+        // When done with lightin up the candle, destroy the fireball.
+        if (lightSource.intensity == targetIntensity)
         {
             Destroy(gameObject);
         }
