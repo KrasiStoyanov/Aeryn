@@ -5,7 +5,7 @@ using UnityEngine;
 public class IdleAnim : MonoBehaviour {
 
 		private Rigidbody2D rb;
-		
+		private SpriteRenderer sr;
 		private ParticleSystem ps;
 		private GameObject player;
 		private float emissionOverTime;
@@ -19,7 +19,7 @@ public class IdleAnim : MonoBehaviour {
 		ps = GetComponent<ParticleSystem>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		rb = player.GetComponent<Rigidbody2D>();
-		
+		sr = player.GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -39,9 +39,8 @@ public class IdleAnim : MonoBehaviour {
 			emissionOverTime = 20.0f;
 			emission.rateOverTime = emissionOverTime;
 			StartSpeed = 5.0f;
-			transform.rotation = Quaternion.Euler(-60, -90, 90);
-			StartSize = 6f;
-			StartLifetime = 1f;
+			StartSize = 8f;
+			StartLifetime = 1.5f;
 		} else
 		{
 			emissionOverDistance = 50.0f;
@@ -50,8 +49,15 @@ public class IdleAnim : MonoBehaviour {
 			emission.rateOverTime = emissionOverTime;
 			StartSpeed = 0f;
 			transform.rotation = Quaternion.Euler(-180, 0, 0);
-			StartSize = 6.5f;
+			StartSize = 8f;
 			StartLifetime = 0.65f;
 		}
+
+		// if (sr.flipX == true)
+		// {
+		// 	transform.rotation = Quaternion.Euler(-45, 0, 90);
+		// } else {
+		// 	transform.rotation = Quaternion.Euler(45, 0, 90);
+		// }
 	}
 }

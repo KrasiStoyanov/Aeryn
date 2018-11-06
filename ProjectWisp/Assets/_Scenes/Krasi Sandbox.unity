@@ -36924,48 +36924,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1001 &623432853
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 303.44363
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -329.52332
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431652494989258, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f562e60801cb4274d887b62057faf8aa, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &665238803
 GameObject:
   m_ObjectHideFlags: 0
@@ -37764,7 +37722,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4901252276816022, guid: ff6641a90f0ea354980b998f719d1825, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4901252276816022, guid: ff6641a90f0ea354980b998f719d1825, type: 2}
       propertyPath: m_LocalScale.y
@@ -93128,7 +93086,7 @@ SpriteRenderer:
   m_Size: {x: 43.4, y: 96.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1556059522
@@ -93702,7 +93660,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.9147763, b: 0.3160377, a: 1}
-  m_Intensity: 5
+  m_Intensity: 0
   m_Range: 30
   m_SpotAngle: 30
   m_CookieSize: 10
