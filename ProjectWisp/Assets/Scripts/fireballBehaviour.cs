@@ -78,6 +78,12 @@ public class FireballBehaviour : MonoBehaviour
             burningScript.IsBurning = true;
         }
 
+        if (collision.collider.tag == "CrackedPillar") {
+            CrackedPillarBehaviour pillarScript = collision.collider.gameObject.GetComponent<CrackedPillarBehaviour>();
+
+            pillarScript.runDestruction = true;
+        }
+
         // Whenever the fireball collides with any other game object from the above - destroy.
         // Exclude elements with tag HealingSource from this check in order to smoothly increase candle ligth and then destroy.
         if (collision.collider.tag != shootingSource.tag && collision.collider.tag != "HealingSource")
