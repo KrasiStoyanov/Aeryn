@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - RopePiece
   - HealingSource
   - Prediction
   - Enemy
-  - Fireball
-  - RopePiece
-  - GameManager
+  - PickUp
+  - FallingObject
+  - NotFallingObject
   layers:
   - Default
   - TransparentFX

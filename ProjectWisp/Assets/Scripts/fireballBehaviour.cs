@@ -11,6 +11,12 @@ public class FireballBehaviour : MonoBehaviour
     private GameObject shootingSource;
     private GameObject[] shootingTargets;
 
+    //sound
+    private bool playSound;
+    
+    [SerializeField]
+    AudioClip flyingFire;
+
     void Start()
     {
         // Exclude the shooting source from the collision detection if the source is set to an instance of an object.
@@ -18,6 +24,11 @@ public class FireballBehaviour : MonoBehaviour
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), shootingSource.GetComponent<Collider2D>());
         }
+        if(!playSound){
+			AudioSource.PlayClipAtPoint(flyingFire, transform.position);
+			playSound = true;
+			}
+						
 
         // Start the countdown of the fireball lifespan.
         StartCoroutine(DestroyFireball());

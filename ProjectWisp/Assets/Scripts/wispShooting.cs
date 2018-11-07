@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿           using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +22,7 @@ public class wispShooting : MonoBehaviour {
 	float ChargeSpeed = 5;
 
 	private float NormalGravity = 1;
+
 	
 
 	// Use this for initialization
@@ -57,6 +58,7 @@ public class wispShooting : MonoBehaviour {
 			rigid.gravityScale = NormalGravity;
 			rigid.velocity= transform.up*Strength*fireballSpeed;
 			Strength = 10;
+			
 	}
 		
 	}

@@ -35,12 +35,31 @@ public class BossBehaviourManager : MonoBehaviour {
 	private float sliderValue;
 	private Transform target;
 
+	//Sounds
+	private bool playSound;
+	private bool bossIntroduction;
+	private float currentMaxHealth;
+	
+	[SerializeField]
+	AudioClip bossHit;
+
+	[SerializeField]
+	AudioClip startBoss;
+
+	public AudioSource audioSource1;
+	public AudioSource audiosource2;
+
+
+
+
+
 	[SerializeField]
 	GameObject countdownPoint;
 
 	// Use this for initialization
 	void Start () {
 		
+		audioSource1.Play();
 		canvasVisibility = canvas.GetComponent<Canvas>();
 		canvasVisibility.enabled = false;
 		sliderSizeVariable = new Vector2(0,40f);
@@ -53,6 +72,7 @@ public class BossBehaviourManager : MonoBehaviour {
 		healthSting = sting.GetComponent<HealthMechanic>().health;
 		initialGeneralHealth = healthFace + healthLeftClaw + healthRightClaw + healthSting;
 		sliderValue = generalHealth * 100f/ initialGeneralHealth;
+		currentMaxHealth = initialGeneralHealth;
 		//canvas.transform.Find("Slider").GetComponent<Slider>().value = sliderValue;
 
 		Debug.Log(initialGeneralHealth);
@@ -62,6 +82,14 @@ public class BossBehaviourManager : MonoBehaviour {
 	void Update () {
 		if (Vector3.Distance(target.position, countdownPoint.transform.position) < 50 || isTriggered == true)
 		{
+			if(!bossIntroduction){
+				AudioSource.PlayClipAtPoint(startBoss, transform.position);
+				bossIntroduction = true;
+				audioSource1.Stop();
+				audiosource2.Play();
+
+			}
+			
 			if (readyForBattle == true)
 			{
 				ManageHealth();
@@ -78,6 +106,7 @@ public class BossBehaviourManager : MonoBehaviour {
 				{
 					isTriggered = true;
 					readyForBattle = true;
+					playSound = false;
 				}
 				// while (sliderSizeVariable.x < 500)
 				// {
@@ -98,6 +127,11 @@ public class BossBehaviourManager : MonoBehaviour {
 		generalHealth = healthFace + healthLeftClaw + healthRightClaw + healthSting;
 		sliderValue = generalHealth * 100f/ initialGeneralHealth;
 		canvas.transform.Find("Slider").GetComponent<Slider>().value = sliderValue;
+		if(generalHealth < currentMaxHealth){
+			AudioSource.PlayClipAtPoint(bossHit, transform.position);
+			playSound = true;
+			currentMaxHealth = generalHealth;
+		}
 		if (generalHealth * 100f / initialGeneralHealth < 50f && secondStage == false)
 		{
 			Debug.Log("FUCK OFF");

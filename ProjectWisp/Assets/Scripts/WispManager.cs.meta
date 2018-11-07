@@ -3,7 +3,15 @@ guid: 2773d51da910dae4193421d8e428c4ff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fireball: {instanceID: 0}
+  - wisp: {instanceID: 0}
+  - wispCharge1: {fileID: 8300000, guid: f3503072e2a29fc44b175da353964ded, type: 3}
+  - wispCharge2: {fileID: 8300000, guid: 8559df9e92f929a4bbd7627a5d82ef56, type: 3}
+  - wispChargeRelease: {fileID: 8300000, guid: 47e163fcabd876940832e9ae16ef524d, type: 3}
+  - wispHit: {fileID: 8300000, guid: 01597ed7cef40da4480647dd6609efdb, type: 3}
+  - wispDying: {fileID: 8300000, guid: 6875d3fed087deb4d80993180bff50b4, type: 3}
+  - wispIdle: {fileID: 8300000, guid: d009fc47af68ba847bd051d96d94bbb7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
