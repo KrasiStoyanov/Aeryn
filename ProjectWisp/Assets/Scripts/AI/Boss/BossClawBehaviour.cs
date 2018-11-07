@@ -9,6 +9,9 @@ public class BossClawBehaviour : MonoBehaviour {
 	float rotationSpeed;
 
 	//attack
+	private bool canHurt = true;
+	[SerializeField]
+	float healthDamage;
 	[SerializeField]
 	float attackCooldown;
 	[SerializeField]
@@ -71,6 +74,17 @@ public class BossClawBehaviour : MonoBehaviour {
 		timeBtwAttacks = attackCooldown;
 		
 	}
+	void OnCollisionEnter2D (Collision2D col)
+    {
+		Debug.Log("collides");
+        if(col.gameObject.tag == "Player" && canHurt == true)
+        {
+			Debug.Log("collides w player");
+            col.gameObject.GetComponent<HealthMechanic>().health -= healthDamage;
+			canHurt = false;
+			StartCoroutine(WaitForAttack());
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -125,6 +139,11 @@ public class BossClawBehaviour : MonoBehaviour {
 		
 		
 
+	}
+	
+	IEnumerator WaitForAttack(){
+		yield return new WaitForSeconds(1f);
+		canHurt = true;
 	}
 	//claw rotates towards character
 	void Rotate(Vector3 rotationTarget) 
