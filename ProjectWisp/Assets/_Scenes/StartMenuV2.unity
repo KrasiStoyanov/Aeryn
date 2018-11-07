@@ -210,6 +210,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114768024472606284, guid: 805d44a39a331e448ba71b1f27044c4f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50750467363520316, guid: 805d44a39a331e448ba71b1f27044c4f,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50750467363520316, guid: 805d44a39a331e448ba71b1f27044c4f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 805d44a39a331e448ba71b1f27044c4f, type: 2}
   m_IsPrefabAsset: 0

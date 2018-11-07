@@ -49,17 +49,8 @@ public class FloatingCastle : MonoBehaviour
                 // and then calculate a new direction when needed
                 RandomPosition();
             }
-            // otherwise	Vector3 direction = (endPosition - this.transform.position).normalized;
-            // and the force added to the rigidbody
-            rb.AddForce(direction * idleSpeed);
-            // then we check if the distance is small enough to calculate again
-            if (Vector3.Distance(endPosition, this.transform.position) < 0.1f)
-            {
-                // and then calculate a new direction when needed
-                RandomPosition();
-            }
+
         }
-        // otherwise
 
         // obvious timer work
         if (Timer > 0f)
