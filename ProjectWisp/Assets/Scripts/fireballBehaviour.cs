@@ -14,8 +14,7 @@ public class FireballBehaviour : MonoBehaviour
     //sound
     private bool playSound;
     
-    [SerializeField]
-    AudioClip flyingFire;
+    private AudioSource fireballFlying;
 
     void Start()
     {
@@ -24,11 +23,16 @@ public class FireballBehaviour : MonoBehaviour
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), shootingSource.GetComponent<Collider2D>());
         }
+        fireballFlying = GetComponent<AudioSource>();
+        //GetComponent<AudioSource>.play();
+;		
         if(!playSound){
-			AudioSource.PlayClipAtPoint(flyingFire, transform.position);
+            GetComponent<AudioSource>().Play();
+		    //fireballFlying.Play();
 			playSound = true;
-			}
-						
+            Debug.Log("sounds");
+		}
+								
 
         // Start the countdown of the fireball lifespan.
         StartCoroutine(DestroyFireball());
@@ -135,7 +139,6 @@ public class FireballBehaviour : MonoBehaviour
     IEnumerator DestroyFireball()
     {
         yield return new WaitForSeconds(lifeTime);
-
         Destroy(gameObject);
     }
 
