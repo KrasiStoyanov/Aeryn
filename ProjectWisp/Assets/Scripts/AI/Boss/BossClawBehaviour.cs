@@ -127,11 +127,13 @@ public class BossClawBehaviour : MonoBehaviour {
 				}
 				else
 				{
+					Rotate(screenDividerBottom.transform.position);
 					//play Claw clicking animation multiple times.
 				}
 			}
 			else
 			{
+				Rotate(screenDividerBottom.transform.position);
 				Debug.Log("I guess I will die");
 				//Claw should be disabled or crippled somehow
 			}

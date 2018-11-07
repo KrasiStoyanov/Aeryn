@@ -72,6 +72,10 @@ public class BossStingBehaviour : MonoBehaviour {
 	}
 	void OnCollisionEnter2D (Collision2D col)
     {
+		if(col.gameObject.tag == "Player" && finalStingMovePhase)
+		{
+			col.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(1000,0,0);
+		}
 		Debug.Log("collides");
         if(col.gameObject.tag == "Player" && canHurt == true)
         {
@@ -258,7 +262,7 @@ public class BossStingBehaviour : MonoBehaviour {
 				else if ( step1 ==false && Vector2.Distance(transform.position, new Vector3(screenDividerBottom.transform.position.x, target.position.y, target.position.z)) > 3)
 				{
 					canDropSting = true ;
-					transform.position = Vector2.MoveTowards(transform.position, new Vector3(screenDividerBottom.transform.position.x, target.position.y, target.position.z), flyToTargetSpeed * 3f  * Time.deltaTime);
+					transform.position = Vector2.MoveTowards(transform.position, new Vector3(screenDividerBottom.transform.position.x, target.position.y, target.position.z), flyToTargetSpeed * 1.5f  * Time.deltaTime);
 				}
 			}
 			else

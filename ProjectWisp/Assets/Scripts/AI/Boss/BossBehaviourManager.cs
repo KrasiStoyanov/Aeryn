@@ -141,6 +141,8 @@ public class BossBehaviourManager : MonoBehaviour {
 		if (generalHealth * 100f / initialGeneralHealth < 2f && finalTailWhip == false)
 		{
 			Debug.Log("Now it should fuck up the wisp");
+			clawRight.GetComponent<PolygonCollider2D>().enabled = false;
+			clawLeft.GetComponent<PolygonCollider2D>().enabled = false;
 			finalTailWhip = true;
 		}
 	}
