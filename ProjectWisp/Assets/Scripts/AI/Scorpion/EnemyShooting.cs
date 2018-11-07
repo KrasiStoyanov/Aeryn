@@ -40,6 +40,6 @@ public class EnemyShooting : EnemyBehaviourScorpion
 
         // Give the bullet speed.
         Rigidbody2D rigid = newBullet.GetComponent<Rigidbody2D>();
-        rigid.velocity = transform.up * 60;
+        rigid.velocity = transform.up * 75;
     }
 }
