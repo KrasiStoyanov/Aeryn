@@ -58,11 +58,6 @@ public class WispManager : MonoBehaviour
     {
         chargeTimeVariable = chargeTime;
         strengthVariable = strength;
-<<<<<<< HEAD
-        // currentMaxHealth = healthManager.GetHealth();
-=======
-        //currentMaxHealth = healthManager.GetHealth();
->>>>>>> c8b1de7c558ce11e2e9fb67c67877f9d40173bbc
 
         previousIntensity = transform.parent.GetChild(0).GetComponent<Light>().intensity;
     }
