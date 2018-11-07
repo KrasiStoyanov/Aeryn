@@ -100,6 +100,10 @@ public class EnemyBehaviourScorpion : MonoBehaviour
         targetdir = target.position - transform.position;
         targetProjection = new Vector2(target.position.x, monsterPosition.position.y);
 
+        if (GetComponent<HealthMechanic>().health <= 0f)
+        {
+            Destroy(gameObject);
+        }
         if (triggered == true)
         {
             if (timeBtwShots > 0)

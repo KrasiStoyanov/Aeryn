@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/_Scenes/StartMenuV2.unity
     guid: aca2445408c09854c8aa5cc9cc8dfae1
   - enabled: 1
+    path: Assets/_Scenes/Backup098-11-18.unity
+    guid: 325cb63c9c6c570458871c9959fe0d47
+  - enabled: 0
     path: Assets/_Scenes/_SCENE_WITH_ENEMIES.unity
     guid: 8a91ed62809ed3649a02dd3f6a030aa8
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/HealthBarScene.unity
     guid: 8772ba56ebe280c49b43794bafc4c91a
   - enabled: 0

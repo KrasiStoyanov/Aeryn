@@ -50,7 +50,7 @@ public class BurningScript : MonoBehaviour {
 	void Update () {
 		if(IsBurning == true){
 			if(!playSound){
-				AudioSource.PlayClipAtPoint(burnSound, transform.position);
+				// 	AudioSource.PlayClipAtPoint(burnSound, transform.position);
 				playSound = true;
 			}
 						
