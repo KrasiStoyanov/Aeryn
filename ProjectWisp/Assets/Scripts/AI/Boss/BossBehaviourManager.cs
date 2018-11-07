@@ -63,7 +63,7 @@ public class BossBehaviourManager : MonoBehaviour {
 		canvasVisibility = canvas.GetComponent<Canvas>();
 		canvasVisibility.enabled = false;
 		sliderSizeVariable = new Vector2(0,40f);
-		sliderSize = canvas.transform.Find("Slider").GetComponent<RectTransform>();
+		sliderSize = canvas.transform.Find("Slider").GetComponent<RectTransform>();	
 		sliderSize.sizeDelta = new Vector2(0,40f);
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		healthFace = face.GetComponent<HealthMechanic>().health;
